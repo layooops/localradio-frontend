@@ -4,7 +4,7 @@ import {
   $currentGlobalPlayer,
   setCurrentGlobalPlayerEv,
 } from '@/features/choose-global-player/model/current-global-player.model';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import {
   $isClickedStreamPlay,
   $streamError,

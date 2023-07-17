@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Maybe } from 'yup';
 import { ComponentLinksToMixesLink } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { MixCardProps } from '../mix-card.interface';
 import { MixSCButton } from './mix-sc-button';
 import { MixYoutubeButton } from './mix-youtube-button';

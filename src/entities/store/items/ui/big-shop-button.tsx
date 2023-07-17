@@ -1,6 +1,6 @@
 import { ShopButton } from '@/entities/store/items/ui/shop-button';
 import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { productQuantityRestriction } from '@/shared/lib/constants/common';
 import { useSubmit } from './use-submit.hook';
 

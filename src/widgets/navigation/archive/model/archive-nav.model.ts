@@ -1,4 +1,4 @@
-import { root } from '@/shared/lib/root-domain';
+import { root } from '@/shared/lib/effector/root-domain';
 
 export const archiveNav = root.domain('archiveNav');
 

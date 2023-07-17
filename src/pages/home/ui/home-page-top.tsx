@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import useSWR, { useSWRConfig } from 'swr';
 import { TogglePlayerLinks } from '@/features/toggle-mix-player/types/toggle-player.interface';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import SWRfetcher from '@/shared/lib/swr-fetcher';
 import { StreamIsLiveQuery } from '@/widgets/players/stream/api/stream-is-live.graphql.interface';
 import { HomePageProps } from './home-page.interface';

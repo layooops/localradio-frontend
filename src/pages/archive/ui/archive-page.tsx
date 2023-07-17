@@ -14,7 +14,7 @@ import {
   ShopItemEntity,
   ShowEntity,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { EntityVariant } from '@/shared/types/entity-variants.interface';
+import { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
 import { ArchiveSecondHeader } from '@/shared/ui/headings/archive-second-header';
 import { SecondHeader } from '@/shared/ui/headings/second-header';
 import { clickArchiveNavType } from '@/widgets/navigation/archive/model/archive-nav.model';

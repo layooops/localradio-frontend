@@ -1,6 +1,6 @@
 import { useUnit } from 'effector-react';
 import { useForm } from 'effector-react-form';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import {
   checkoutForm,
   contactFormFields,

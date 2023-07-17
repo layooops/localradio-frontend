@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Button } from '@/shared/ui/button/button';
 import { Icon } from '@/shared/ui/icons';
 import type { MixCardButtonProps } from './mix-button.interface';

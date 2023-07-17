@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { setSeoAltText } from '@/shared/lib/set-seo-alt-text';
 import { CardImageWithMemo } from '@/shared/ui/card/card-image/card-image';
 import { CardWrapperWithMemo } from '@/shared/ui/card/card-wrapper/card-wrapper';

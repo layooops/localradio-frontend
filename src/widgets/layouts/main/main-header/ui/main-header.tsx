@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import LocalLogo from '~/icons/LocalLogo.svg';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { useScroll } from '@/shared/lib/hooks/use-scroll.hook';
 import { Button } from '@/shared/ui/button/button';
 import { clickArchiveNavType } from '@/widgets/navigation/archive/model/archive-nav.model';

@@ -1,5 +1,5 @@
-import { clsxm } from '@/shared/lib/clsxm';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 import { Button } from '../button/button';
 
 interface DescriptionButtonProps {

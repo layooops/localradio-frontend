@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FC, HTMLAttributes } from 'react';
 import { Maybe } from 'yup';
 import { Mix } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Button } from '@/shared/ui/button/button';
 import { Icon } from '@/shared/ui/icons';
 import { useSCPlayer } from '../hooks/use-sc-toggle.hook';

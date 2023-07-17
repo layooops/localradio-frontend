@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '../../icons';
 import { NextImage } from '../../next-image/next-image';
 import { CardProps } from '../card.interface';

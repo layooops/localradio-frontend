@@ -1,5 +1,5 @@
 import type { LinkProps } from 'next/link';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 
 type ButtonColorType = 'primary' | 'secondary' | 'clear';
 type ButtonVariantType = 'clear' | 'shadow';

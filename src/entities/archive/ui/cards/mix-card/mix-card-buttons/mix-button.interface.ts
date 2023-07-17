@@ -1,5 +1,5 @@
 import { Maybe } from 'yup';
-import { SizeVariant } from '@/shared/types/size-variant.interface';
+import { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 
 export interface MixButtonProps {
   sizeVariant: SizeVariant;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import type { Maybe } from 'yup';
-import { clsxm } from '@/shared/lib/clsxm';
-import type { Description } from '@/shared/types/description.interface';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+import type { Description } from '@/shared/lib/types/description.interface';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 import { DescriptionButton } from './description-button';
 import { DescriptionItem } from './description-item';
 

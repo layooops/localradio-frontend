@@ -9,7 +9,7 @@ import {
 } from '@/entities/store/items/model/shop.model';
 import { ShopSubmitElement } from '@/entities/store/items/ui/big-shop-button';
 import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { GenreItem } from '@/shared/ui/genres/genre-button/genre-item';
 import { NextImage } from '@/shared/ui/next-image/next-image';
 

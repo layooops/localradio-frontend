@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import type { Maybe } from 'yup';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { isTodayOrTomorrow } from '@/shared/lib/is-today-or-tomorrow';
 import { NextImage } from '@/shared/ui/next-image/next-image';
 import { ScheduleQuery } from '../api/schedule.graphql.interface';

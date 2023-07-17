@@ -8,7 +8,7 @@ import {
   MixFiltersInput,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import { Description } from '@/shared/types/description.interface';
+import { Description } from '@/shared/lib/types/description.interface';
 import { MixDescription } from '../ui/types/mix-page.interface';
 
 interface GetMixPageData {

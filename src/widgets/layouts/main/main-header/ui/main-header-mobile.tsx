@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Heart from '~/icons/heart.png';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { LocalSocialsList } from '@/widgets/layouts/main/local-socials-List/ui/local-socials-list';
 import { headerNav } from '../lib/header-nav';
 import { HeaderMobileLink } from './header-mobile-link';

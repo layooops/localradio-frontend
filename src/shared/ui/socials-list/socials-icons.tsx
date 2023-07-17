@@ -1,4 +1,4 @@
-import type { SocialLinks } from '@/shared/types/local-nav.interface';
+import type { SocialLinks } from '@/shared/lib/types/local-nav.interface';
 import { Icon } from '../icons';
 
 interface LocalSocialIconsProps {

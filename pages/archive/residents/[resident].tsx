@@ -13,7 +13,7 @@ import type {
 } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { getDescription } from '@/shared/lib/get-gescription';
 import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import type { Description } from '@/shared/types/description.interface';
+import type { Description } from '@/shared/lib/types/description.interface';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {

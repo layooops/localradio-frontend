@@ -2,7 +2,7 @@ import { useUnit } from 'effector-react';
 import { useState } from 'react';
 import { CartItem } from '@/entities/store/cart/ui/cart-item';
 import { $totalPrice, Product } from '@/entities/store/items/model/shop.model';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 
 interface CheckoutOrderSummaryProps {

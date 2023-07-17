@@ -4,7 +4,7 @@ import type {
   Maybe,
   MixEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { root } from '@/shared/lib/root-domain';
+import { root } from '@/shared/lib/effector/root-domain';
 
 export const search = root.domain('search');
 

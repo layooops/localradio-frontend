@@ -2,7 +2,7 @@ import type {
   ComponentLinksToSocialsLinksToSocials,
   Maybe,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import type { Description } from '@/shared/types/description.interface';
+import type { Description } from '@/shared/lib/types/description.interface';
 import { Icon } from '@/shared/ui/icons';
 import { DescriptionGroup } from '../../shared/ui/description/description-group';
 import { NextImage } from '../../shared/ui/next-image/next-image';

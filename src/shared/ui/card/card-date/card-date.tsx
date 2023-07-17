@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { formatDate } from '@/shared/lib/format-date';
 import { CardDateProps } from './card-date.interface';
 

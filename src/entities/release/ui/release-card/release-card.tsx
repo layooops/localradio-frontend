@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import { ReleaseEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { formatLinksWithAdditionalInfo } from '@/shared/lib/format-links-with-additional-info';
-import { setSeoAltText } from '@/shared/lib/set-seo-alt-text';
+
 import { Button } from '@/shared/ui/button/button';
 import { Card } from '@/shared/ui/card';
+import { formatLinksWithAdditionalInfo } from '@/shared/lib/helpers/format-links-with-additional-info';
+import { setSeoAltText } from '@/shared/lib/helpers/set-seo-alt-text';
+import { releaseLinksAdditionalData } from './release-links-additional-data';
 
 type ReleaseCardProps = CardBaseProps & ReleaseEntity;
 
@@ -18,7 +20,7 @@ export const ReleaseCard: FC<ReleaseCardProps> = (props) => {
 
   const links = formatLinksWithAdditionalInfo({
     links: attributes?.links,
-    variant: 'release',
+    additionalData: releaseLinksAdditionalData,
   });
 
   return (

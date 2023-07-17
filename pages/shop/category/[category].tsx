@@ -10,7 +10,7 @@ import {
   ShopCategoryEntity,
   ShopItemEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { capitalize } from '@/shared/lib/capitalize';
+import { capitalize } from '@/shared/lib/helpers/capitalize';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface Page {

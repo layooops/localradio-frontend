@@ -7,11 +7,11 @@ import {
   ShopItemEntity,
   ShowEntity,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
-import type { EntityVariant } from '@/shared/types/entity-variants.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
 import { EventCard } from '../cards/event-card/event-card';
 import { MixCardWithMemo } from '../cards/mix-card/mix-card';
-import { ReleaseCard } from '../cards/release-card/release-card';
+import { ReleaseCard } from '../../../release/ui/release-card/release-card';
 import { ShowResidentCard } from '../cards/show-resident-card/show-resident-card';
 
 export interface Cards {
@@ -31,7 +31,7 @@ export const Cards = ({
       ? clsxm({
           '4xl:hidden': data.length >= 10 && data.length < index + 3,
         })
-      : '';
+      : undefined;
 
   if (data)
     return (

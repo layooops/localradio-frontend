@@ -1,7 +1,7 @@
 import { useUnit } from 'effector-react';
 import type { Maybe } from 'yup';
 import { ShopButton } from '@/entities/store/items/ui/shop-button';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { productQuantityRestriction } from '@/shared/lib/constants/common';
 import {
   decrementProductQuantityEv,

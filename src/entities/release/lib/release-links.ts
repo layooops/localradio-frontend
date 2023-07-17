@@ -2,17 +2,26 @@ import { LinkProps } from 'next/link';
 import {
   releaseLinksAdditionalData,
   socialsAdditionalData,
-} from '@/entities/archive/ui/cards/release-card/release-links-additional-data';
-import type {
-  ComponentLinksToSocialsLinksToSocials,
-  ComponentReleaseLinksLinks,
-} from '@/shared/api/graphql/__generated__/schema.graphql';
+} from '@/entities/release/ui/release-card/release-links-additional-data';
+
+import { Maybe } from 'yup';
 
 type AdditionalData =
-  | keyof typeof socialsAdditionalData
-  | keyof typeof releaseLinksAdditionalData;
+  | 'BCLink'
+  | 'IGLink'
+  | 'SCLink'
+  | 'TGLink'
+  | 'VKLink'
+  | 'appleMusic'
+  | 'bandcamp'
+  | 'soundcloud'
+  | 'spotify'
+  | 'vkMusic'
+  | 'yandexMusic'
+  | 'youtubeMusic';
+type Links = Record<AdditionalData, Maybe<string>>;
 
-export interface LinksWithColors {
+interface LinksWithColors {
   color?: string | undefined;
   icon?: JSX.Element | undefined;
   title?: string | undefined;
@@ -20,18 +29,15 @@ export interface LinksWithColors {
   href: LinkProps['href'];
 }
 
-interface FormatLinksWithColors {
+interface FormatLinksWithColorsProps {
   variant: 'release' | 'socials';
-  links?:
-    | ComponentReleaseLinksLinks
-    | ComponentLinksToSocialsLinksToSocials
-    | null;
+  links?: Links | null;
 }
 
 export const formatLinksWithAdditionalInfo = ({
   variant,
   links,
-}: FormatLinksWithColors) => {
+}: FormatLinksWithColorsProps) => {
   const linksArray =
     links &&
     Object.entries(links).filter((link) =>

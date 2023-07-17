@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import type { EntityVariant } from '@/shared/types/entity-variants.interface';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 import { SecondHeader } from './second-header';
 
 export interface SecondHeaderProps extends React.PropsWithChildren {

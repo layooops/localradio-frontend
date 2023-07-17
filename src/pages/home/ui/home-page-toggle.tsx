@@ -6,7 +6,7 @@ import {
   YoutubeToggleElement,
 } from '@/features/toggle-mix-player/ui';
 import { MixEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { YOUTUBE_LIVE_LINK } from '@/shared/lib/constants/common';
 import { Icon } from '@/shared/ui/icons';
 import type { StreamIsLiveQuery } from '@/widgets/players/stream/api/stream-is-live.graphql.interface';

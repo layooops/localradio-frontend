@@ -1,5 +1,5 @@
 import { HTMLAttributes, memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 
 type ScheduleIconWrapper = HTMLAttributes<HTMLDivElement>;
 

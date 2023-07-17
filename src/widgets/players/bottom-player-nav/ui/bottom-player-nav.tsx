@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { MixCardWithMemo } from '@/entities/archive/ui/cards/mix-card/mix-card';
 import { setCurrentGlobalPlayerEv } from '@/features/choose-global-player/model/current-global-player.model';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 import { ListIcon } from '@/shared/ui/icons/icons/list-icon';
 import { $randomMixes } from '../../soundcloud/model/sc-random-mixes.model';

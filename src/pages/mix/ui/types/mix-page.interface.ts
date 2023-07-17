@@ -3,7 +3,7 @@ import {
   MixEntity,
   MixEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { Description } from '@/shared/types/description.interface';
+import { Description } from '@/shared/lib/types/description.interface';
 
 export interface MixDescription {
   mix?: Description;

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Button } from '../../button/button';
 import { GenreButtonProps } from '../types/genre.interface';
 

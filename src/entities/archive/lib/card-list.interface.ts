@@ -6,7 +6,7 @@ import type {
   MixFiltersInput,
   ReleaseFiltersInput,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import type { EntityVariant } from '@/shared/types/entity-variants.interface';
+import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
 
 export interface SecondHeader {
   slug: Maybe<string>;

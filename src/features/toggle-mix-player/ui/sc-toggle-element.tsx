@@ -1,6 +1,6 @@
 import { useUnit } from 'effector-react';
 import { Mix } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { NextImage } from '@/shared/ui/next-image/next-image';
 import { $currentMixPlayer } from '../model/current-mix-player.model';
 import { PlayerElementProps } from '../types/sc-toggle.interface';

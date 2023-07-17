@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { SvgIconConstituentValues } from '@/shared/types/svg-icon-constituent-values.interface';
+import { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
 
 interface CloseIcon extends SvgIconConstituentValues {
   weight: 'light' | 'bold';

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { $currentMixPlayer } from '@/features/toggle-mix-player/model/current-mix-player.model';
 import { TogglePlayerLinks } from '@/features/toggle-mix-player/types/toggle-player.interface';
 import { PlayerToggle } from '@/features/toggle-mix-player/ui/player-toggle';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { CardDate } from '@/shared/ui/card';
 import { GenreListWithMemo } from '@/shared/ui/genres/genre-list/genre-list';
 import { HomePageTopProps } from './home-page-top';

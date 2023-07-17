@@ -1,6 +1,6 @@
 import type { Maybe } from 'yup';
-import { clsxm } from '@/shared/lib/clsxm';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 import { Icon } from '@/shared/ui/icons';
 
 export interface BaseProps {

@@ -7,22 +7,22 @@ import { Icon } from '@/shared/ui/icons';
 const IconClasses =
   'h-[clamp(12px,6vw,15px)] w-[clamp(12px,6vw,15px)] lg:h-[20px] lg:w-[20px]';
 
-export type ReleaseLinksKeys = keyof Omit<
+type ReleaseLinksKeys = keyof Omit<
   ComponentReleaseLinksLinks,
   'id' | '__typename'
 >;
-export type SocialsLinksKeys = keyof Omit<
+type SocialsLinksKeys = keyof Omit<
   ComponentLinksToSocialsLinksToSocials,
   'id' | '__typename'
 >;
 
-export interface LinkAdditionalData {
+interface LinkAdditionalData {
   color?: string;
   icon: JSX.Element;
   title?: string;
 }
 
-export type AdditionalDataRecord<T extends string> = Record<
+type AdditionalDataRecord<T extends string> = Record<
   T,
   LinkAdditionalData | null
 >;

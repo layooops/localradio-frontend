@@ -5,7 +5,7 @@ import {
   $currentGlobalPlayer,
   setCurrentGlobalPlayerEv,
 } from '@/features/choose-global-player/model/current-global-player.model';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 import { BottomPlayerNav } from '../../bottom-player-nav/ui/bottom-player-nav';
 import { $randomMixes } from '../model/sc-random-mixes.model';

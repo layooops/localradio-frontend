@@ -2,7 +2,7 @@ import { useUnit } from 'effector-react';
 import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 import { ShopCategoryEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { useScroll } from '@/shared/lib/hooks/use-scroll.hook';
 import SWRfetcher from '@/shared/lib/swr-fetcher';
 import { ArchiveNavItemWithMemo } from '@/widgets/navigation/archive/ui/archive-nav-item';

@@ -1,4 +1,4 @@
-import { LocalNavElement } from '@/shared/types/local-nav.interface';
+import { LocalNavElement } from '@/shared/lib/types/local-nav.interface';
 
 export const localRadioTeamLinks: LocalNavElement[] = [
   {

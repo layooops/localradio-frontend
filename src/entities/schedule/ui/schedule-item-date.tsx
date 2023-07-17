@@ -1,6 +1,6 @@
 import type { Maybe } from 'yup';
 import type { PopularityResponse } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { TodayOrTomorrow } from '@/shared/lib/is-today-or-tomorrow';
+import { TodayOrTomorrow } from '@/shared/lib/helpers/is-today-or-tomorrow';
 
 interface ScheduleItemDateProps {
   todayOrTomorrow: TodayOrTomorrow;

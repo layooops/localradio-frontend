@@ -1,30 +1,19 @@
-import { clsxm } from '@/shared/lib/clsxm';
-import { GenreListWithMemo } from '@/shared/ui/genres/genre-list/genre-list';
-import { CardProps } from '../card.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { CardDate } from '../card-date';
 import { CardHeadingWithMemo } from '../card-heading/card-heading';
+import { CardBottomInfoProps } from './card-bottom-info.interface';
 
-type CardBottomInfoProps = Pick<
-  CardProps,
-  | 'sizeVariant'
-  | 'variant'
-  | 'date'
-  | 'genres'
-  | 'headingText'
-  | 'href'
-  | 'cardDate'
-  | 'children'
->;
 
 export const CardBottomInfo = ({
   sizeVariant,
   variant,
   date,
-  genres,
+  genresNode,
   headingText,
   href,
   cardDate,
   children,
+  hasBorder
 }: CardBottomInfoProps) => {
   return (
     <div
@@ -42,7 +31,7 @@ export const CardBottomInfo = ({
       <div
         className={clsxm(
           'flex flex-1 flex-col',
-          { 'border-b border-black': genres?.data.length },
+          { 'border-b border-black': hasBorder },
           {
             'gap-0.5': variant === 'mix' && sizeVariant === 'standard',
           },
@@ -62,14 +51,7 @@ export const CardBottomInfo = ({
           text={cardDate?.text}
         />
       </div>
-      {variant === 'mix' && (
-        <GenreListWithMemo
-          variant='solid'
-          colorVariant='primary'
-          sizeVariant='small'
-          genres={genres?.data}
-        />
-      )}
+      {genresNode}
       {variant === 'release' && children}
     </div>
   );

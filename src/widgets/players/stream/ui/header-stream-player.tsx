@@ -1,6 +1,6 @@
 import { useUnit } from 'effector-react';
 import { memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 import { $isStreamLoaded, $streamIsAvailable } from '../model/stream';
 import { HeaderStreamMarqueeButton } from './header-stream-marquee-button';

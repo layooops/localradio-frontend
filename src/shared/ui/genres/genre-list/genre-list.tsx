@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { GenreItem } from '../genre-button/genre-item';
 import { GenreListProps } from '../types/genre.interface';
 

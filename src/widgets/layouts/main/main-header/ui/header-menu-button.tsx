@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 
 interface HeaderMenuButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {

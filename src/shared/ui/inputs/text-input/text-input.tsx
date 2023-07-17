@@ -2,7 +2,7 @@ import { useUncontrolled } from '@mantine/hooks';
 import type { FocusEvent } from 'react';
 import { useCallback, useState } from 'react';
 import { useIMask } from 'react-imask';
-import { createView } from '@/shared/lib/view';
+import { createView } from '@/shared/lib/effector/view';
 import { InputErrorWrapper } from '../input-error-wrapper';
 import { InputProps } from '../types/input.interface';
 

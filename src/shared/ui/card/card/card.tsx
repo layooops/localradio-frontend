@@ -1,9 +1,10 @@
 import { FC, memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { CardProps } from '../card.interface';
 import { CardBottomInfo } from '../card-bottom-info/card-bottom-info';
 import { CardImageWithMemo } from '../card-image/card-image';
 import { CardWrapperWithMemo } from '../card-wrapper/card-wrapper';
+import { GenreListWithMemo } from '../../genres/genre-list/genre-list';
 
 export const Card: FC<CardProps> = (props) => {
   const {
@@ -14,6 +15,7 @@ export const Card: FC<CardProps> = (props) => {
     mixButtons,
     className,
     sizeVariant = 'standard',
+    cardDate,
     ...rest
   } = props;
   const cardWrapperClasses = clsxm(
@@ -58,7 +60,7 @@ export const Card: FC<CardProps> = (props) => {
         </div>
         <div
           className={clsxm(
-            'flex w-full   flex-col',
+            'flex w-full flex-col',
             {
               'absolute bottom-0 left-0':
                 mixButtons && sizeVariant === 'standard',
@@ -73,6 +75,15 @@ export const Card: FC<CardProps> = (props) => {
             href={href}
             sizeVariant={sizeVariant}
             variant={variant}
+            cardDate={cardDate}
+            genresNode={variant === 'mix' && (
+              <GenreListWithMemo
+                variant='solid'
+                colorVariant='primary'
+                sizeVariant='small'
+                genres={rest?.genres?.data}
+              />
+            )}
             {...rest}
           >
             {bottomInfo}

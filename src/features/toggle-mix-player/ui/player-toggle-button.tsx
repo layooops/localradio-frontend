@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Button } from '@/shared/ui/button/button';
 import type { CurrentMixPlayer } from '../types/toggle-player.interface';
 

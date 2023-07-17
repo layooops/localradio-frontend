@@ -1,5 +1,5 @@
 import type { Maybe } from 'yup';
-import type { Description } from '../types/description.interface';
+import { Description } from '../types/description.interface';
 
 export const getDescription = (
   data?: Maybe<Description> | Maybe<string>

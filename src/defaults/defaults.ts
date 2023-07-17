@@ -2,7 +2,7 @@ import {
   MixEntityResponseCollection,
   ReleaseEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { Description } from '@/shared/types/description.interface';
+import { Description } from '@/shared/lib/types/description.interface';
 import defaultAboutJson from './default-about.json';
 import defaultMixesJson from './default-mixes.json';
 import defaultReleasesJson from './default-releases.json';

@@ -20,13 +20,17 @@
       "@app": ["./src"],
       "@app/*": ["./src/*"],
       "react": ["./node_modules/@types/react"],
-      "~icons/*": ["public/icons/*"]
+      "~icons/*": ["public/icons/*"],
+      "@/fonts/*": ["./public/fonts/*"]
     },
     "noErrorTruncation": true,
     "incremental": true,
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
+      },
+      {
+        "name": "next"
       }
     ]
   },
@@ -36,7 +40,8 @@
     "**/*.tsx",
     "./pages",
     "jest.setup.js",
-    "next-sitemap.config.js"
+    "next-sitemap.config.js",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]

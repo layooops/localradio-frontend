@@ -1,6 +1,6 @@
 import { Maybe } from 'yup';
-import { EntityVariant } from '@/shared/types/entity-variants.interface';
-import { SizeVariant } from '@/shared/types/size-variant.interface';
+import { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
+import { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 
 export interface CardDateProps {
   date?: string | Date;

@@ -1,5 +1,5 @@
 import React, { ComponentType, ReactNode } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { SecondHeaderProps } from './archive-second-header';
 
 type ValidTags = keyof JSX.IntrinsicElements;

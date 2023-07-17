@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { memo } from 'react';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { HeaderLinkWrapperProps } from './header-link';
 
 export const HeaderLinkWrapper = ({

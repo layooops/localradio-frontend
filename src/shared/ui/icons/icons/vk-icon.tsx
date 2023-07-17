@@ -1,4 +1,4 @@
-import { SvgIconConstituentValues } from '@/shared/types/svg-icon-constituent-values.interface';
+import { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
 
 export const VKIcon = ({ className }: SvgIconConstituentValues) => {
   return (

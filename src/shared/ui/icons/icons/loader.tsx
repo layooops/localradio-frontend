@@ -1,5 +1,5 @@
-import { clsxm } from '@/shared/lib/clsxm';
-import { SvgIconConstituentValues } from '@/shared/types/svg-icon-constituent-values.interface';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+import { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
 
 export const Loader = ({ className }: SvgIconConstituentValues) => {
   return (

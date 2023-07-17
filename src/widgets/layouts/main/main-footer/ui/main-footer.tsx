@@ -1,7 +1,7 @@
 import { useUnit } from 'effector-react';
 import Link from 'next/link';
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { LocalSocialsList } from '@/widgets/layouts/main/local-socials-List/ui/local-socials-list';
 import { $isOpenedWidget } from '@/widgets/players/soundcloud/model/soundcloud.model';
 

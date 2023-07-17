@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CardSectionWithMemo } from '@/entities/archive/ui/card-section';
-import { clsxm } from '@/shared/lib/clsxm';
+import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { GenreListWithMemo } from '@/shared/ui/genres/genre-list/genre-list';
 import { SearchedData } from '../model/search.model';
 

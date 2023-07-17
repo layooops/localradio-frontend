@@ -8,7 +8,7 @@ import { AboutDocument } from '@/pages/about/api/about.graphql.interface';
 import { AboutPage } from '@/pages/about/ui/about-page';
 import { client } from '@/shared/api/apollo/apollo-client';
 import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import type { Description } from '@/shared/types/description.interface';
+import type { Description } from '@/shared/lib/types/description.interface';
 import { Seo } from '@/shared/ui/seo/seo';
 
 export interface AboutPageProps {

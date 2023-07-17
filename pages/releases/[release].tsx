@@ -10,7 +10,7 @@ import { client } from '@/shared/api/apollo/apollo-client';
 import { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { getDescription } from '@/shared/lib/get-gescription';
 import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import { Description } from '@/shared/types/description.interface';
+import { Description } from '@/shared/lib/types/description.interface';
 import { Seo } from '@/shared/ui/seo/seo';
 
 const Page: NextPage<ReleasePageProps> = (props) => {

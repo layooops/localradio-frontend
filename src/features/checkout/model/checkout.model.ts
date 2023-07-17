@@ -2,7 +2,7 @@ import { createEffect, sample } from 'effector';
 import { Maybe } from 'yup';
 import { store } from '@/entities/store/factory/shop-factory.model';
 import { $products } from '@/entities/store/items/model/shop.model';
-import { pushFx } from '@/shared/lib/effector-router';
+import { pushFx } from '@/shared/lib/effector/effector-router';
 import { checkoutForm } from './checkout.form';
 import { CheckoutForm } from './checkout-form.interface';
 

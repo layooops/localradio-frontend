@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC, memo } from 'react';
 import type { Maybe } from 'yup';
-import type { SizeVariant } from '@/shared/types/size-variant.interface';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
 
 interface Props {
   href: string;

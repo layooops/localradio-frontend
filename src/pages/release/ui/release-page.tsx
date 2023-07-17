@@ -1,5 +1,5 @@
 import { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
-import type { Description } from '@/shared/types/description.interface';
+import type { Description } from '@/shared/lib/types/description.interface';
 import { PageWrapper } from '../../ui/page-wrapper';
 import ReleasePageBottom from './release-page-bottom';
 import { ReleasePageCenter } from './release-page-center';
