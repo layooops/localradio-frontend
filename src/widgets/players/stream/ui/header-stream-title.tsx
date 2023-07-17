@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import type { ScheduleQuery } from '@/entities/schedule/api/schedule.graphql.interface';
 import { ScheduleItemLink } from '@/entities/schedule/ui/schedule-item-link';
 import { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
@@ -8,9 +7,9 @@ interface HeaderStreamTitleProps {
   eventSchedulesFixed: ScheduleQuery['eventSchedulesFixed'];
 }
 
-export const HeaderStreamTitle: FC<HeaderStreamTitleProps> = ({
+export const HeaderStreamTitle = ({
   eventSchedulesFixed,
-}) => {
+}: HeaderStreamTitleProps) => {
   return (
     <div className='flex pr-2'>
       <span>{STREAM_DISABLED_TITLE}</span>

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { Icon } from '@/shared/ui/icons';
 import { ScheduleIconWrapperWithMemo } from './schedule-icon-wrapper';
 
@@ -7,10 +7,10 @@ interface ScheduleItemIconProps extends HTMLAttributes<HTMLDivElement> {
   variant: 'info' | 'local' | null;
 }
 
-export const ScheduleItemIcon: FC<ScheduleItemIconProps> = ({
+export const ScheduleItemIcon = ({
   variant,
   className,
-}) => {
+}: ScheduleItemIconProps) => {
   if (variant === 'local')
     return (
       <ScheduleIconWrapperWithMemo

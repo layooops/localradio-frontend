@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import {
   GuestEntity,
@@ -10,7 +9,7 @@ type ShowResidentProps = CardBaseProps & (ShowEntity | GuestEntity);
 
 type Variant = 'resident' | 'residents' | 'show' | 'shows';
 
-export const ShowResidentCard: FC<ShowResidentProps> = (props) => {
+export const ShowResidentCard = (props: ShowResidentProps): JSX.Element => {
   const { attributes, __typename, className } = props;
   const latestMix = attributes?.mixes?.data[0]?.attributes;
   const latestEpisodeDate = latestMix?.date;

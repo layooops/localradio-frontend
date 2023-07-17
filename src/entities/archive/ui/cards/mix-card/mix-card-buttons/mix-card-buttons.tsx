@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Maybe } from 'yup';
 import { ComponentLinksToMixesLink } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { clsxm } from '@/shared/lib/clsxm';
@@ -11,12 +10,12 @@ interface MixCardButtonsProps extends Pick<MixCardProps, 'sizeVariant' | 'id'> {
   linksToMixes: Maybe<ComponentLinksToMixesLink>;
 }
 
-export const MixCardButtons: FC<MixCardButtonsProps> = ({
+export const MixCardButtons = ({
   id,
   slug,
   sizeVariant,
   linksToMixes,
-}) => {
+}: MixCardButtonsProps) => {
   const soundcloudLink = linksToMixes?.soundcloudLink;
   const youtubeLink = linksToMixes?.youtubeLink;
 

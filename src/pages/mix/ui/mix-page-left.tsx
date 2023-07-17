@@ -1,5 +1,4 @@
 import Link, { LinkProps } from 'next/link';
-import { FC } from 'react';
 import type { Maybe } from 'yup';
 import { ComponentLinksToSocialsLinksToSocials } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { DescriptionGroup } from '@/shared/ui/description/description-group';
@@ -22,12 +21,12 @@ interface MixDescriptionTopProps {
   variant: 'show' | 'guest';
 }
 
-export const MixDescriptionTop: FC<MixDescriptionTopProps> = ({
+export const MixDescriptionTop = ({
   href,
   title,
   socials,
   variant,
-}) => {
+}: MixDescriptionTopProps) => {
   return (
     <div className='flex justify-between overflow-hidden'>
       <div className='flex w-full flex-col justify-between border-black   pb-1.5  text-sm uppercase  leading-none md:text-[0.98rem] lg:border-b-2  lg:border-t-0 2xl:pb-2'>

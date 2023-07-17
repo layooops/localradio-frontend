@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { useUnit } from 'effector-react';
 import { useRouter } from 'next/router';
-import { FC, Fragment, useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Icon } from '@/shared/ui/icons';
 import {
   $isOpenedSearchModal,
@@ -119,11 +119,11 @@ interface SearchInfoText {
   searchError: null | Error;
 }
 
-const SearchInfoText: FC<SearchInfoText> = ({
+const SearchInfoText = ({
   searchedData,
   searchValue,
   searchError,
-}) => {
+}: SearchInfoText) => {
   return (
     <div className='flex  flex-col justify-center gap-3    text-2xl font-semibold uppercase leading-none  text-black'>
       {(searchedData.mixes?.data.length || searchedData.genres?.data.length) &&

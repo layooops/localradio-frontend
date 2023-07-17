@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { AboutPageProps } from 'pages/about';
-import { FC } from 'react';
 import { DescriptionGroup } from '@/shared/ui/description/description-group';
 import { SecondHeader } from '@/shared/ui/headings/second-header';
 import { TextWrapper } from '@/shared/ui/text-wrapper/text-wrapper';
 import { localRadioTeamLinks } from '../lib/local-radio-team-links';
 
-export const AboutPage: FC<AboutPageProps> = ({ description }) => {
+export const AboutPage = ({ description }: AboutPageProps) => {
   return (
     <main className='relative flex w-full flex-1 lg:pt-0'>
       <div className='flex flex-1 flex-col'>
@@ -27,9 +26,8 @@ export const AboutPage: FC<AboutPageProps> = ({ description }) => {
                   </div>
                 }
               />
-
               <TextWrapper sizeVariant='large'>
-                <div className='flex w-fit flex-col justify-between px-1.5 lg:px-2 xl:px-3.5'>
+                <div className='flex w-fit  flex-col justify-between px-1.5 lg:px-2 xl:px-3.5'>
                   <div className='pb-0.5 text-xl font-semibold uppercase leading-none sm:pb-1 md:text-2xl xl:pb-2 xl:text-3xl'>
                     Our team
                   </div>

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { ScheduleItemIcon } from './schedule-item-icon';
 import { ScheduleItemInternalProps } from './schedule-item-internal';
 import { ScheduleItemLink } from './schedule-item-link';
 
-export const ScheduleItemWithDescription: FC<ScheduleItemInternalProps> = ({
+export const ScheduleItemWithDescription = ({
   artist,
-}) => {
+}: ScheduleItemInternalProps) => {
   const [openDescription, setOpenDescription] = useState(false);
   return (
     <button

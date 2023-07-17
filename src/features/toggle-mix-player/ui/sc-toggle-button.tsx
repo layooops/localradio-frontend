@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { FC, HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { Maybe } from 'yup';
 import { Mix } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { clsxm } from '@/shared/lib/clsxm';
@@ -15,12 +15,12 @@ interface SCToggleButtonProps
   mixId: Maybe<string>;
 }
 
-export const SCToggleButton: FC<SCToggleButtonProps> = ({
+export const SCToggleButton = ({
   attributes,
   mixId,
   mixLink,
   className,
-}) => {
+}: SCToggleButtonProps) => {
   const { isActive, linkToMix, handlePlay } = useSCPlayer({
     mixId,
     slug: attributes?.slug,

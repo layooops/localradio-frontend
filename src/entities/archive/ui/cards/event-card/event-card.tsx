@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import { EventEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { setSeoAltText } from '@/shared/lib/set-seo-alt-text';
@@ -6,7 +5,7 @@ import { Card } from '@/shared/ui/card';
 
 type EventCardProps = CardBaseProps & EventEntity;
 
-export const EventCard: FC<EventCardProps> = (props) => {
+export const EventCard = (props: EventCardProps) => {
   const { attributes, className } = props;
 
   const altText = setSeoAltText({

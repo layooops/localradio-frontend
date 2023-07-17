@@ -1,11 +1,11 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { clsxm } from '@/shared/lib/clsxm';
 import { CardProps } from '../card.interface';
 import { CardBottomInfo } from '../card-bottom-info/card-bottom-info';
 import { CardImageWithMemo } from '../card-image/card-image';
 import { CardWrapperWithMemo } from '../card-wrapper/card-wrapper';
 
-export const Card: FC<CardProps> = (props) => {
+export const Card = (props: CardProps) => {
   const {
     bottomInfo,
     variant,

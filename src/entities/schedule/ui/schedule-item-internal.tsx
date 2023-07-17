@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import type { Maybe } from 'yup';
 import { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { ScheduleItemLink } from './schedule-item-link';
@@ -8,9 +7,7 @@ export interface ScheduleItemInternalProps {
   artist: Maybe<Artist>;
 }
 
-export const ScheduleItemInternal: FC<ScheduleItemInternalProps> = ({
-  artist,
-}) => {
+export const ScheduleItemInternal = ({ artist }: ScheduleItemInternalProps) => {
   if (artist?.description) {
     return <ScheduleItemWithDescription artist={artist} />;
   }

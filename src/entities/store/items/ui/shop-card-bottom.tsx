@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { clsxm } from '@/shared/lib/clsxm';
 import { Icon } from '@/shared/ui/icons';
 import { ShopSubmitElement } from './big-shop-button';
 
-export const ShopCardBottom: FC<ShopItemEntity> = (product) => {
-  const { attributes } = product;
+export const ShopCardBottom = (props: ShopItemEntity) => {
+  const { attributes } = props;
   const sizes = attributes?.attributes?.size as string[] | undefined;
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [isSelectedSize, setIsSelectedSize] = useState<boolean>(false);
@@ -92,7 +92,7 @@ export const ShopCardBottom: FC<ShopItemEntity> = (product) => {
               false
             }
             type='card'
-            product={product}
+            product={props}
             price={attributes?.price}
           />
         </div>

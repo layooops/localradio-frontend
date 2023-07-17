@@ -1,9 +1,8 @@
-import { FC } from 'react';
 import { clsxm } from '@/shared/lib/clsxm';
 import { GenreButtonProps } from '../types/genre.interface';
 import { GenreButton } from './genre-button';
 
-export const GenreItem: FC<GenreButtonProps> = (props) => {
+export const GenreItem = (props: GenreButtonProps) => {
   const { type, isActive, title, ...rest } = props;
   switch (type) {
     case 'genre': {

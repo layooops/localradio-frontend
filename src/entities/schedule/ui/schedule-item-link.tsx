@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link, { type LinkProps } from 'next/link';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import type { Maybe } from 'yup';
 import type { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { ScheduleItemIcon } from './schedule-item-icon';
@@ -10,11 +10,11 @@ interface ScheduleItemLink extends HTMLAttributes<LinkProps> {
   variant: 'black' | 'primary' | 'empty';
 }
 
-export const ScheduleItemLink: FC<ScheduleItemLink> = ({
+export const ScheduleItemLink = ({
   artist,
   className,
   variant = 'primary',
-}) => {
+}: ScheduleItemLink) => {
   let href = '';
   if (artist?.guest?.attributes?.slug)
     href = '/archive/residents/' + artist.guest.attributes.slug;

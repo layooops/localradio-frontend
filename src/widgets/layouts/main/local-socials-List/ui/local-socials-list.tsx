@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { FC } from 'react';
 import { LocalSocialIcons } from '@/shared/ui/socials-list/socials-icons';
 import { localSocialsNav } from '../lib/local-socials-nav';
 
@@ -8,7 +7,7 @@ interface LocalSocialsListProps {
   variant: 'header' | 'footer';
 }
 
-export const LocalSocialsList: FC<LocalSocialsListProps> = ({ variant }) => {
+export const LocalSocialsList = ({ variant }: LocalSocialsListProps) => {
   return (
     <ul
       className={clsx(

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardSectionWithMemo } from '@/entities/archive/ui/card-section';
 import { GenreItem } from '@/shared/ui/genres/genre-button/genre-item';
 import { HomePageProps } from './home-page.interface';
@@ -51,10 +50,10 @@ export const HomePageContent = ({
   );
 };
 
-const HomepageGenresAndMoods: FC<Pick<HomePageProps, 'genres' | 'moods'>> = ({
+const HomepageGenresAndMoods = ({
   moods,
   genres,
-}) => {
+}: Pick<HomePageProps, 'genres' | 'moods'>) => {
   if (moods?.data && genres?.data)
     return (
       <div className='hidden px-1.5 py-2 lg:block lg:px-2 xl:px-3.5'>

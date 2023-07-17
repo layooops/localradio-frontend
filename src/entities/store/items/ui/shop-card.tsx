@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { clsxm } from '@/shared/lib/clsxm';
@@ -9,7 +8,7 @@ import { ShopCardBottom } from './shop-card-bottom';
 
 type ShopCardProps = CardBaseProps & ShopItemEntity;
 
-export const ShopCard: FC<ShopCardProps> = (props) => {
+export const ShopCard = (props: ShopCardProps) => {
   const { attributes, className } = props;
   const imagesList = attributes?.images.data;
   const altText = setSeoAltText({

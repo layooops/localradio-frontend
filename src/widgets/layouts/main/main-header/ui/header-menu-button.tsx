@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import { clsxm } from '@/shared/lib/clsxm';
 
 interface HeaderMenuButtonProps
@@ -6,10 +6,10 @@ interface HeaderMenuButtonProps
   isOpened: boolean;
 }
 
-export const HeaderMenuButton: FC<HeaderMenuButtonProps> = ({
+export const HeaderMenuButton = ({
   onClick,
   isOpened,
-}) => {
+}: HeaderMenuButtonProps) => {
   return (
     <button
       onClick={onClick}

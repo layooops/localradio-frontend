@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Release } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { formatLinksWithAdditionalInfo } from '@/shared/lib/format-links-with-additional-info';
 import { Button } from '@/shared/ui/button/button';
@@ -9,11 +8,11 @@ interface ReleasePageLinksProps {
   links?: Release['links'];
 }
 
-export const ReleasePageLinks: FC<ReleasePageLinksProps> = ({
+export const ReleasePageLinks = ({
   releaseName,
   artistName,
   links,
-}) => {
+}: ReleasePageLinksProps) => {
   const releaseTitle = artistName + ' - ' + releaseName;
   const releaseLinks = formatLinksWithAdditionalInfo({
     links,

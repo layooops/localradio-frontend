@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardDate } from '@/shared/ui/card/card-date';
 import { NextImage } from '@/shared/ui/next-image/next-image';
 import { ReleasePageProps } from './release-page';
@@ -6,7 +5,7 @@ import { ReleasePageLinks } from './release-page-links';
 
 export type ReleasePageCenterProps = Pick<ReleasePageProps, 'releases'>;
 
-export const ReleasePageCenter: FC<ReleasePageCenterProps> = ({ releases }) => {
+export const ReleasePageCenter = ({ releases }: ReleasePageCenterProps) => {
   const attributes = releases?.data[0].attributes;
 
   return (

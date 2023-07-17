@@ -1,17 +1,14 @@
-import { FC } from 'react';
 import { clsxm } from '@/shared/lib/clsxm';
 import { Button } from '../../button/button';
 import { GenreButtonProps } from '../types/genre.interface';
 
-type GenreBProps = Omit<GenreButtonProps, 'type'>;
-
-export const GenreButton: FC<GenreBProps> = ({
+export const GenreButton = ({
   sizeVariant,
   colorVariant,
   slug,
   title,
   variant,
-}) => {
+}: Omit<GenreButtonProps, 'type'>) => {
   return (
     <Button
       variant='clear'

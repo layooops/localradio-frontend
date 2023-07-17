@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
 import { ReleaseEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { formatLinksWithAdditionalInfo } from '@/shared/lib/format-links-with-additional-info';
@@ -8,7 +7,7 @@ import { Card } from '@/shared/ui/card';
 
 type ReleaseCardProps = CardBaseProps & ReleaseEntity;
 
-export const ReleaseCard: FC<ReleaseCardProps> = (props) => {
+export const ReleaseCard = (props: ReleaseCardProps) => {
   const { attributes, className } = props;
   const releaseTitle = attributes?.artistName + ' - ' + attributes?.releaseName;
   const altText = setSeoAltText({
