@@ -1,7 +1,7 @@
-export default async function SWRfetcher<JSON = any>(
+export const SWRFetcher = async function <JSON = any>(
   input: RequestInfo,
-  init?: RequestInit
+  init?: RequestInit,
 ): Promise<JSON> {
   const res = await fetch(input, init);
   return res.json();
-}
+};

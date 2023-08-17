@@ -1,7 +1,8 @@
-import clsx from 'clsx';
-import { FC, memo } from 'react';
-import { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
+import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+
+import { memo } from 'react';
+import clsx from 'clsx';
 
 interface CardWrapperProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
   children: React.ReactNode;
@@ -9,13 +10,13 @@ interface CardWrapperProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
   sizeVariant?: SizeVariant;
 }
 
-export const CardWrapper: FC<CardWrapperProps> = ({
+export const CardWrapper = ({
   children,
   sizeVariant = 'standard',
   variant,
   className,
   ...rest
-}) => {
+}: CardWrapperProps) => {
   return (
     <article
       className={clsx('relative flex flex-col gap-y-1', className)}

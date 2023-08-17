@@ -1,12 +1,13 @@
-import type { GetServerSideProps, NextPage } from 'next';
-import type { Maybe } from 'yup';
-import { ArchiveApi } from '@/entities/archive/api';
-import { EventPage } from '@/pages/event/ui/event-page';
-import { client } from '@/shared/api/apollo/apollo-client';
 import type { SlugParams } from '@/shared/api/apollo/slug-params';
 import type { EventEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
+import type { GetServerSideProps, NextPage } from 'next';
+import type { Maybe } from 'yup';
+
+import { EventApi } from '@/entities/event/api';
+import { EventPage } from '@/pages/event-page/ui/event-page';
+import { client } from '@/shared/api/apollo/apollo-client';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { getMarkdownToHtml } from '@/shared/lib/helpers/markdown-to-html';
 import { Seo } from '@/shared/ui/seo/seo';
 
 export interface EventSchedulePage {
@@ -49,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     data: { events },
   } = await client.query({
-    query: ArchiveApi.EventsDocument,
+    query: EventApi.EventsDocument,
     variables: { filters: { slug: { eq: event as string } } },
   });
 
@@ -59,22 +60,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
+  const [firstEvent] = events.data;
+
   const descriptionRu = await getMarkdownToHtml(
-    events.data[0].attributes?.eventInfo.info
+    firstEvent.attributes?.eventInfo.info,
   );
 
-  const eventName = events.data[0].attributes?.name;
+  const eventName = firstEvent.attributes?.name;
 
   const eventSchedule =
-    events.data[0].attributes?.eventInfo.schedule &&
+    firstEvent.attributes?.eventInfo.schedule &&
     (await Promise.all(
-      events.data[0].attributes.eventInfo.schedule.map(async (schedule) => ({
+      firstEvent.attributes.eventInfo.schedule.map(async (schedule) => ({
         ...schedule,
         info: await getMarkdownToHtml(schedule?.info),
-      }))
+      })),
     ));
 
   return {
-    props: { events: events.data[0], eventName, descriptionRu, eventSchedule },
+    props: { events: firstEvent, eventName, descriptionRu, eventSchedule },
   };
 };

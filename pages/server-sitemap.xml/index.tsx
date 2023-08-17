@@ -1,6 +1,9 @@
 import type { GetServerSideProps } from 'next';
-import { getServerSideSitemapLegacy, ISitemapField } from 'next-sitemap';
-import { ArchiveApi } from '@/entities/archive/api';
+import type { ISitemapField } from 'next-sitemap';
+
+import { getServerSideSitemapLegacy } from 'next-sitemap';
+
+import { SitemapApi } from '@/features/sitemap/api';
 import { client } from '@/shared/api/apollo/apollo-client';
 import { SITE_URL } from '@/shared/config/environment';
 
@@ -10,14 +13,14 @@ interface CommonAttributes {
 }
 
 const getSitemap = (
-  elems: { attributes: Pick<CommonAttributes, 'slug'> }[] | any,
-  s: string
+  elements: { attributes: Pick<CommonAttributes, 'slug'> }[] | any,
+  s: string,
 ): ISitemapField[] => {
-  return elems.map(
+  return elements.map(
     ({ attributes }: { attributes: Pick<CommonAttributes, 'slug'> }) => ({
       loc: `${SITE_URL}/${s}/` + attributes.slug,
       lastmod: new Date().toISOString(),
-    })
+    }),
   );
 };
 
@@ -25,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     data: { guests, mixes, shows, genres, moods, releases, events },
   } = await client.query({
-    query: ArchiveApi.SitemapDocument,
+    query: SitemapApi.SitemapDocument,
   });
 
   const archiveMixesSitemap = getSitemap(mixes, 'archive');

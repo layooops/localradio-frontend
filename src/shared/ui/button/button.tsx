@@ -1,11 +1,14 @@
-import clsx from 'clsx';
-import Link from 'next/link';
-import { ForwardedRef, forwardRef, memo } from 'react';
-import {
+import type {
   AnchorProps,
   PolymorphicButton,
   PolymorphicButtonProps,
 } from './button.interface';
+import type { ForwardedRef } from 'react';
+
+import { forwardRef, memo } from 'react';
+import clsx from 'clsx';
+
+import Link from 'next/link';
 
 const isAnchor = (props: PolymorphicButtonProps): props is AnchorProps => {
   return props.href !== undefined;
@@ -54,7 +57,7 @@ export const Button = memo(
             'pointer-events-none bg-gray-300 stroke-gray-color text-gray-color':
               disabled,
           },
-          className
+          className,
         );
       };
 
@@ -123,6 +126,6 @@ export const Button = memo(
       }
 
       return null;
-    }
-  ) as PolymorphicButton
+    },
+  ) as PolymorphicButton,
 );

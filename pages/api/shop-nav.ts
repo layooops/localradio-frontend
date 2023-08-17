@@ -1,19 +1,22 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ShopCategoriesDocument } from '@/entities/store/items/api/shop-items.graphql.interface';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+import { ShopApi } from '@/entities/shop/api';
 import { client } from '@/shared/api/apollo/apollo-client';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const {
       data: { shopCategories },
     } = await client.query({
-      query: ShopCategoriesDocument,
+      query: ShopApi.ShopCategoriesDocument,
     });
-    res.status(200).send({ shopCategories });
+    res.status(HTTP_STATUS.OK).send({ shopCategories });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }

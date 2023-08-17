@@ -1,6 +1,6 @@
-import { Maybe } from 'yup';
-import { GenreEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { GenreEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { Maybe } from 'yup';
 
 export type GenreColorVariant = 'primary' | 'transparent';
 export type GenreVariant = 'solid' | 'borderless';

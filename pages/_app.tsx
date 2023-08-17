@@ -1,6 +1,7 @@
+import type { Page } from '@/shared/lib/types/page';
 import type { AppProps } from 'next/app';
+
 import { AppWithProviders } from '@/app/app-with-providers';
-import { Page } from '@/shared/lib/types/page';
 
 interface Props extends AppProps {
   Component: Page;

@@ -1,5 +1,6 @@
+import type { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
-import { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
 
 export const Loader = ({ className }: SvgIconConstituentValues) => {
   return (
@@ -8,7 +9,7 @@ export const Loader = ({ className }: SvgIconConstituentValues) => {
         aria-hidden='true'
         className={clsxm(
           ' h-10 w-10 animate-spin fill-white text-gray-200 dark:text-gray-600',
-          className
+          className,
         )}
         viewBox='0 0 100 101'
         fill='none'

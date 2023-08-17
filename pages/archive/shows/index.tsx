@@ -1,8 +1,9 @@
+import type { ShowEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { GetStaticProps, GetStaticPropsResult, NextPage } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type { ShowEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -30,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     const {
       data: { shows },
     } = await client.query({
-      query: ArchiveApi.ShowsDocument,
+      query: MixArchiveInnerApi.ShowsDocument,
       variables: { limit: 1 },
     });
     return {

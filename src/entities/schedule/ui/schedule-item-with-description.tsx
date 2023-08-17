@@ -1,12 +1,14 @@
+import type { ScheduleItemInternalProps } from './schedule-item-internal';
+
+import { useState } from 'react';
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+
 import { ScheduleItemIcon } from './schedule-item-icon';
-import { ScheduleItemInternalProps } from './schedule-item-internal';
 import { ScheduleItemLink } from './schedule-item-link';
 
-export const ScheduleItemWithDescription: FC<ScheduleItemInternalProps> = ({
+export const ScheduleItemWithDescription = ({
   artist,
-}) => {
+}: ScheduleItemInternalProps) => {
   const [openDescription, setOpenDescription] = useState(false);
   return (
     <button
@@ -15,7 +17,7 @@ export const ScheduleItemWithDescription: FC<ScheduleItemInternalProps> = ({
       className={clsx(
         'flex flex-col items-center overflow-hidden rounded-lg bg-primary text-left font-medium uppercase leading-[1.05] text-black transition duration-100 ease-out',
         'hover:bg-secondary-dark hover:fill-black',
-        { 'bg-secondary-dark fill-black': openDescription }
+        { 'bg-secondary-dark fill-black': openDescription },
       )}
     >
       <div className='flex items-center border-black'>
@@ -26,7 +28,7 @@ export const ScheduleItemWithDescription: FC<ScheduleItemInternalProps> = ({
               'flex flex-col gap-1.5 pt-0.5 text-[12px] font-medium normal-case lg:pt-1.5 lg:text-[13px] 2xl:text-[15px]',
               {
                 hidden: !openDescription,
-              }
+              },
             )}
           >
             <div>{artist?.description}</div>

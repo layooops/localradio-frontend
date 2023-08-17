@@ -1,20 +1,20 @@
+import type { ChangeEvent, FormEventHandler } from 'react';
+
+import { memo, useEffect, useState } from 'react';
 import { useUnit } from 'effector-react';
-import {
-  ChangeEvent,
-  FormEventHandler,
-  memo,
-  useEffect,
-  useState,
-} from 'react';
-import { DEBOUNCE_TIMEOUT_IN_MS } from '@/shared/lib/constants/common';
+
+import { DEBOUNCE_TIMEOUT_IN_MS } from '@/shared/lib/constants/contants';
 import { useDebounce } from '@/shared/lib/hooks/use-debouce.hook';
 import { Icon } from '@/shared/ui/icons';
 import { BaseInput } from '@/shared/ui/inputs/base-input';
+
 import {
   openSearchModalEv,
   searchChanged,
   submittedSearchEv,
 } from '../model/search.model';
+
+const MIN_SEARCH_LENGTH = 1;
 
 export const SearchForm = () => {
   const { openSearchModal, searchChange, submitted } = useUnit({
@@ -31,11 +31,11 @@ export const SearchForm = () => {
 
   const debounceSearch = useDebounce(
     searchTerm.toString().trim(),
-    DEBOUNCE_TIMEOUT_IN_MS
+    DEBOUNCE_TIMEOUT_IN_MS,
   );
 
   useEffect(() => {
-    if (debounceSearch.toString().length > 0) {
+    if (debounceSearch.toString().length > MIN_SEARCH_LENGTH) {
       searchChange(debounceSearch);
     }
   }, [searchChange, debounceSearch]);

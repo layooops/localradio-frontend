@@ -1,26 +1,30 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
-import { client } from '@/shared/api/apollo/apollo-client';
-import {
+import type {
   GenreEntityResponseCollection,
   MixEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+import { MixApi } from '@/entities/mix/api';
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
+import { client } from '@/shared/api/apollo/apollo-client';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const query = req.body;
   try {
     const data = await search(query);
-    res.status(200).send({ data });
+    res.status(HTTP_STATUS.OK).send({ data });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }
 
 export const search = async (searchValue: string) => {
-  const { mixes } = await ArchiveApi.fetchMixes<MixEntityResponseCollection>({
+  const { mixes } = await MixApi.fetchMixes<MixEntityResponseCollection>({
     filters: {
       name: { contains: searchValue },
     },
@@ -30,7 +34,7 @@ export const search = async (searchValue: string) => {
   const {
     data: { genres },
   } = await client.query({
-    query: ArchiveApi.GenresDocument,
+    query: MixArchiveInnerApi.GenresDocument,
     variables: {
       filters: {
         name: { contains: searchValue },

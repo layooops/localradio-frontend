@@ -1,5 +1,6 @@
-import type { Maybe } from 'yup';
 import type { Schedule } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { Maybe } from 'yup';
+
 import { ScheduleItemInternal } from './schedule-item-internal';
 
 interface ScheduleItemProps {

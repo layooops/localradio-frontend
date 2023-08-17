@@ -1,6 +1,9 @@
-import React, { ComponentType, ReactNode } from 'react';
+import type { SecondHeaderProps } from './archive-second-header';
+import type { ComponentType, ReactNode } from 'react';
+
+import React from 'react';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
-import { SecondHeaderProps } from './archive-second-header';
 
 type ValidTags = keyof JSX.IntrinsicElements;
 export type ValidHeadingTags = keyof Pick<
@@ -36,7 +39,7 @@ export const Heading = <T extends ValidHeadingTags>({
         {
           'leading-none  lg:text-[clamp(3rem,5vw,3.75rem)]   lg:leading-[0.95] xl:text-[4rem] 2xl:text-[4.5rem] 5xl:text-[5.4rem]':
             sizeVariant === 'standard',
-        }
+        },
       )}
       {...elementProps}
     />

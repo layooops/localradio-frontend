@@ -1,5 +1,7 @@
-import { clsxm } from '@/shared/lib/helpers/clsxm';
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import { Button } from '../button/button';
 
 interface DescriptionButtonProps {
@@ -34,7 +36,7 @@ export const DescriptionButton = ({
           'bg-primary !text-black hover:!text-primary':
             selectedLang !== lang && !disabled,
         },
-        { 'lg:rounded-l-none xl:pl-3.5': sizeVariant !== 'large' }
+        { 'lg:rounded-l-none xl:pl-3.5': sizeVariant !== 'large' },
       )}
     >
       {text}

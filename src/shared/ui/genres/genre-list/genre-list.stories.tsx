@@ -1,5 +1,6 @@
+import type { GenreRelationResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { Meta, StoryObj } from '@storybook/react';
-import { GenreRelationResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { GenreListWithMemo } from './genre-list';
 
 const meta = {

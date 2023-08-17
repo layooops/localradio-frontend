@@ -1,9 +1,11 @@
-import { sample } from 'effector';
 import type {
   GenreEntityResponseCollection,
   Maybe,
   MixEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
+
+import { sample } from 'effector';
+
 import { root } from '@/shared/lib/effector/root-domain';
 
 export const search = root.domain('search');
@@ -31,7 +33,7 @@ export const searchMixFx = search.createEffect<string, SearchedData>(
       throw new Error(res.error);
     }
     return res.data as SearchedData;
-  }
+  },
 );
 
 sample({

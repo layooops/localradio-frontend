@@ -1,5 +1,8 @@
-import { useUnit } from 'effector-react';
+import type { UsePlayerProps } from './use-player.interface';
+
 import { useCallback } from 'react';
+import { useUnit } from 'effector-react';
+
 import { setCurrentGlobalPlayerEv } from '@/features/choose-global-player/model/current-global-player.model';
 import { fetchRandomMixesFx } from '@/widgets/players/soundcloud/model/sc-random-mixes.model';
 import {
@@ -10,7 +13,7 @@ import {
   setIsSCPlayingEv,
   setLinkToMixEv,
 } from '@/widgets/players/soundcloud/model/soundcloud.model';
-import type { UsePlayerProps } from './use-player.interface';
+
 import { usePlayerIsActive } from './use-player-is-active.hook';
 
 export const useSCPlayer = (props: UsePlayerProps) => {

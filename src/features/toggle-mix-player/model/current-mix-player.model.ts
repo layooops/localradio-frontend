@@ -1,5 +1,6 @@
+import type { CurrentMixPlayer } from '../types/toggle-player.interface';
+
 import { player } from '@/widgets/players/player-domain';
-import { CurrentMixPlayer } from '../types/toggle-player.interface';
 
 const currentMixPlayer = player.domain('currentMixPlayer');
 

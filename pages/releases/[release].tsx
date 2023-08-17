@@ -1,16 +1,17 @@
+import type { ReleasePageProps } from '@/pages/release-page/ui/release-page';
+import type { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { Description } from '@/shared/lib/types/description.interface';
 import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { defaultReleases } from '@/defaults/defaults';
-import { ArchiveApi } from '@/entities/archive/api';
-import { ReleasePage, ReleasePageProps } from '@/pages/release/ui/release-page';
+
+import { defaultReleases, ReleaseApi } from '@/entities/release/api';
+import { ReleasePage } from '@/pages/release-page/ui/release-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import { Description } from '@/shared/lib/types/description.interface';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { getMarkdownToHtml } from '@/shared/lib/helpers/markdown-to-html';
 import { Seo } from '@/shared/ui/seo/seo';
 
 const Page: NextPage<ReleasePageProps> = (props) => {
@@ -37,7 +38,7 @@ const Page: NextPage<ReleasePageProps> = (props) => {
 export default Page;
 
 export const getServerSideProps: GetServerSideProps = async (
-  context
+  context,
 ): Promise<GetServerSidePropsResult<ReleasePageProps>> => {
   const { release } = context.params as { release: string };
 
@@ -45,7 +46,7 @@ export const getServerSideProps: GetServerSideProps = async (
     const {
       data: { releases },
     } = await client.query({
-      query: ArchiveApi.ReleasesDocument,
+      query: ReleaseApi.ReleasesDocument,
       variables: {
         filters: { slug: { eq: release } },
       },
@@ -58,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (
     }
 
     const description = (await getMarkdownToHtml(
-      releases?.data[0].attributes
+      releases?.data[0].attributes,
     )) as Description;
 
     return {
@@ -69,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async (
     };
   } catch (error) {
     const releases = defaultReleases.data.find(
-      (data) => data.attributes?.slug === release
+      (data) => data.attributes?.slug === release,
     );
     if (releases)
       return {

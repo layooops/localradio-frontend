@@ -1,8 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
 import {
-  ICECAST_SERVER_NAME,
-  ICECAST_STATUS_URL,
+  AUDIO_SERVER_NAME,
+  AUDIO_STATUS_URL,
 } from '@/shared/config/environment';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
 
 export const STREAM_ERROR_TITLE = 'Stream under maintenance';
 
@@ -32,20 +34,22 @@ interface IcecastResponse {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const title = await fetchTitle().catch((error) => {
       throw new Error(error.message);
     });
-    res.status(200).send({ title });
+    res.status(HTTP_STATUS.OK).send({ title });
   } catch (error) {
-    res.status(404).send({ error: error instanceof Error && error.message });
+    res
+      .status(HTTP_STATUS.NOT_FOUND)
+      .send({ error: error instanceof Error && error.message });
   }
 }
 
 const fetchTitle = async () => {
-  const response = await fetch(ICECAST_STATUS_URL);
+  const response = await fetch(AUDIO_STATUS_URL);
 
   if (response.ok) {
     const data = (await response.json()) as IcecastResponse;
@@ -56,7 +60,7 @@ const fetchTitle = async () => {
     if (Array.isArray(data.icestats.source)) {
       const mainSource = data.icestats.source.find(
         (e: { title: string; server_name: string }) =>
-          e.server_name === ICECAST_SERVER_NAME
+          e.server_name === AUDIO_SERVER_NAME,
       );
 
       return mainSource?.title;
@@ -66,7 +70,10 @@ const fetchTitle = async () => {
     }
   }
 
-  if (response.status === 500 || response.status === 404) {
+  if (
+    response.status === HTTP_STATUS.SERVER_ERROR ||
+    response.status === HTTP_STATUS.NOT_FOUND
+  ) {
     throw new Error(STREAM_ERROR_TITLE);
   }
 };

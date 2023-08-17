@@ -1,4 +1,4 @@
-import { LocalNavElement } from '@/shared/lib/types/local-nav.interface';
+import type { LocalNavElement } from '@/shared/lib/types/local-nav.interface';
 
 export const localSocialsNav: LocalNavElement[] = [
   {

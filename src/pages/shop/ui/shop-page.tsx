@@ -1,5 +1,7 @@
+import type { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { PageWrapper } from '@/pages/ui/page-wrapper';
-import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { ShopPageCenter } from './shop-page-center';
 import { ShopPageLeft } from './shop-page-left';
 

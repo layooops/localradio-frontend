@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { GenreItem } from './genre-item';
 
 const meta = {

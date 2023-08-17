@@ -1,5 +1,8 @@
-import { useUnit } from 'effector-react';
+import type { UsePlayerProps } from './use-player.interface';
+
 import { useCallback } from 'react';
+import { useUnit } from 'effector-react';
+
 import { setCurrentGlobalPlayerEv } from '@/features/choose-global-player/model/current-global-player.model';
 import { setLinkToMixEv } from '@/widgets/players/soundcloud/model/soundcloud.model';
 import {
@@ -9,7 +12,7 @@ import {
   setCurrentYoutubeLinkEv,
   setIsYoutubePlayingEv,
 } from '@/widgets/players/youtube/model/youtube.model';
-import { UsePlayerProps } from './use-player.interface';
+
 import { usePlayerIsActive } from './use-player-is-active.hook';
 
 export const useYoutubeBottomPlayer = (props: UsePlayerProps) => {
@@ -58,11 +61,9 @@ export const useYoutubeBottomPlayer = (props: UsePlayerProps) => {
     setCurrentGlobalPlayer,
     setLinkToMix,
     setIsClickedPlayYoutube,
-    setIsYoutubePlaying,
     currentYoutubeLink,
     setCurrentYoutubeLink,
     youtubeIsPlaying,
-    setIsYoutubePlaying,
   ]);
 
   return { handlePlay, isActive };

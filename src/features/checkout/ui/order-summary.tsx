@@ -1,7 +1,10 @@
-import { useUnit } from 'effector-react';
+import type { Product } from '@/entities/shop/lib/types/product.interface';
+
 import { useState } from 'react';
-import { CartItem } from '@/entities/store/cart/ui/cart-item';
-import { $totalPrice, Product } from '@/entities/store/items/model/shop.model';
+import { useUnit } from 'effector-react';
+
+import { $totalPrice } from '@/entities/shop/model/shop.model';
+import { CartItem } from '@/features/cart/add-to-cart/ui/cart-item';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 
@@ -16,6 +19,8 @@ export const CheckoutOrderSummary = ({
     totalPrice: $totalPrice,
   });
   const [openedList, openList] = useState(false);
+
+  const hasProducts = Array.isArray(products);
 
   return (
     <div className='flex  flex-col gap-3 border-y-2 border-black  py-3  font-medium uppercase leading-none lg:hidden'>
@@ -36,7 +41,7 @@ export const CheckoutOrderSummary = ({
         </div>
       </button>
 
-      {products.length > 0 && (
+      {hasProducts && (
         <div className={clsxm({ hidden: !openedList })}>
           {products.map((product, i) => (
             <CartItem

@@ -1,5 +1,6 @@
+import type { BaseInputProps } from '../types/input.interface';
 import type { Meta, StoryObj } from '@storybook/react';
-import { BaseInputProps } from '../types/input.interface';
+
 import { BaseInput } from './base-input';
 
 const defaultArgs: BaseInputProps = {

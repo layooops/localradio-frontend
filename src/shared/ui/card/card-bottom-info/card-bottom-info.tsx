@@ -1,8 +1,9 @@
+import type { CardBottomInfoProps } from './card-bottom-info.interface';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import { CardDate } from '../card-date';
 import { CardHeadingWithMemo } from '../card-heading/card-heading';
-import { CardBottomInfoProps } from './card-bottom-info.interface';
-
 
 export const CardBottomInfo = ({
   sizeVariant,
@@ -13,7 +14,7 @@ export const CardBottomInfo = ({
   href,
   cardDate,
   children,
-  hasBorder
+  hasBorder,
 }: CardBottomInfoProps) => {
   return (
     <div
@@ -25,7 +26,7 @@ export const CardBottomInfo = ({
         {
           '[&>*]:bg-primary/75  [&>*]:backdrop-blur-[20px] [&>*]:backdrop-saturate-150  [&>*]:transition-colors   group-hover:[&>*]:bg-opacity-[0.75]':
             variant === 'mix' && sizeVariant === 'standard',
-        }
+        },
       )}
     >
       <div
@@ -35,7 +36,7 @@ export const CardBottomInfo = ({
           {
             'gap-0.5': variant === 'mix' && sizeVariant === 'standard',
           },
-          { 'justify-between': sizeVariant === 'standard' }
+          { 'justify-between': sizeVariant === 'standard' },
         )}
       >
         <CardHeadingWithMemo

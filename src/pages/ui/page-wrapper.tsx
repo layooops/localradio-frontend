@@ -1,6 +1,8 @@
 import type { Maybe } from 'yup';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { ArchiveNavBar } from '@/widgets/navigation/archive/ui/archive-nav-bar';
+
 import { Heading } from '../../shared/ui/headings/heading';
 
 interface PageWrapperProps {

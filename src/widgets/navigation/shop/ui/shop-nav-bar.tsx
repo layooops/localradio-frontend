@@ -1,11 +1,14 @@
-import { useUnit } from 'effector-react';
+import type { ShopCategoryEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { useEffect, useRef } from 'react';
+import { useUnit } from 'effector-react';
 import useSWR from 'swr';
-import { ShopCategoryEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+import { SWRFetcher } from '@/shared/lib/helpers/swr-fetcher';
 import { useScroll } from '@/shared/lib/hooks/use-scroll.hook';
-import SWRfetcher from '@/shared/lib/swr-fetcher';
 import { ArchiveNavItemWithMemo } from '@/widgets/navigation/archive/ui/archive-nav-item';
+
 import { setNavHeightEv } from '../model/shop-nav.model';
 import styles from './shop-nav-bar.module.css';
 
@@ -16,7 +19,7 @@ export const ShopNavBar = () => {
 
   const { data } = useSWR<{
     shopCategories: ShopCategoryEntityResponseCollection;
-  }>('/api/shop-nav', SWRfetcher);
+  }>('/api/shop-nav', SWRFetcher);
 
   const elementRef = useRef<HTMLElement>(null);
 
@@ -31,10 +34,10 @@ export const ShopNavBar = () => {
       <nav
         className={clsxm(
           'fixed  top-[var(--header-height)]  z-10 w-full text-[11px]  font-semibold uppercase  transition-all duration-300  sm:text-[0.7rem]  lg:sticky lg:top-[var(--header-height)] xl:text-[0.8rem] 2xl:text-[0.95rem]',
-          { 'lg:top-0': !visible }
+          { 'lg:top-0': !visible },
         )}
       >
-        <ul className={styles.navList}>
+        <ul className={styles['nav-list']}>
           {data.shopCategories.data.map(
             ({ attributes }) =>
               attributes?.parent?.data.length === 0 && (
@@ -43,7 +46,7 @@ export const ShopNavBar = () => {
                   text={attributes.name ?? ''}
                   link={'/shop/category/' + attributes.slug}
                 />
-              )
+              ),
           )}
         </ul>
       </nav>

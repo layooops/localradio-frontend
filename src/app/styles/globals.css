@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
 
 :root {
   --olive-color: #dee5c6;
@@ -30,7 +30,6 @@
       font-weight: 100 900;
       font-display: swap;
       font-display: optional;
-      font-named-instance: 'Regular';
     }
   }
 
@@ -38,6 +37,7 @@
   body {
     padding: 0;
     margin: 0;
+
     /* font-size: calc(17.5px); */
     font-size: calc(17px + 0.06vw);
     background-color: var(--olive-color);
@@ -76,10 +76,14 @@
 
 @layer utilities {
   .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
+    background-image: linear-gradient(#3330, #3330),
       linear-gradient(to right, var(--green-light-color), var(--olive-color));
-    background-size: 100% 2px, 0 2px;
-    background-position: 100% 100%, 0 100%;
+    background-size:
+      100% 2px,
+      0 2px;
+    background-position:
+      100% 100%,
+      0 100%;
     background-repeat: no-repeat;
   }
 
@@ -93,12 +97,14 @@
 
   .animated-underline:hover,
   .animated-underline:focus-visible {
-    background-size: 0 2px, 100% 2px;
+    background-size:
+      0 2px,
+      100% 2px;
   }
 
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+    appearance: none;
     margin: 0;
   }
 }
@@ -109,16 +115,16 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   :root {
     --player-height: 50px;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .moodList,
-  .genresList,
-  .showsList {
+@media screen and (width >= 1024px) {
+  .mood-list,
+  .genres-list,
+  .shows-list {
     padding: 0.5rem 1.8rem;
   }
 
@@ -129,7 +135,7 @@
   }
 }
 
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   :root {
     --header-height: 5rem;
   }

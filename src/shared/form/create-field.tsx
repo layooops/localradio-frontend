@@ -3,7 +3,7 @@ import type { ChangeEvent, ComponentType } from 'react';
 
 export function createField<P, Keys extends string = ''>(
   Component: ComponentType<P>,
-  skippedFieldProps?: (keyof ReturnType<Controller>)[]
+  skippedFieldProps?: (keyof ReturnType<Controller>)[],
 ) {
   return function ({ use, ...props }: Omit<P, Keys> & { use: Controller }) {
     const { input, error, isShowError } = use();
@@ -31,7 +31,7 @@ export function createField<P, Keys extends string = ''>(
 
 export function createSuggestField<P, Keys extends string = ''>(
   Component: ComponentType<P>,
-  skippedFieldProps?: (keyof ReturnType<Controller>)[]
+  skippedFieldProps?: (keyof ReturnType<Controller>)[],
 ) {
   // eslint-disable-next-line func-names
   return function ({ use, ...props }: Omit<P, Keys> & { use: Controller }) {
@@ -63,7 +63,7 @@ export function createSuggestField<P, Keys extends string = ''>(
 
 export function createBooleanField<P, Keys extends string = ''>(
   Component: ComponentType<P>,
-  skippedFieldProps?: (keyof ReturnType<Controller>)[]
+  skippedFieldProps?: (keyof ReturnType<Controller>)[],
 ) {
   // eslint-disable-next-line func-names
   return function ({ use, ...props }: Omit<P, Keys> & { use: Controller }) {

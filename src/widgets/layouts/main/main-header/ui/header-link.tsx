@@ -1,5 +1,9 @@
+import type { HTMLAttributes } from 'react';
+
+import { memo } from 'react';
+
 import Link from 'next/link';
-import { HTMLAttributes, memo } from 'react';
+
 import { HeaderLinkWrapperWithMemo } from './header-link-wrapper';
 
 export interface HeaderLinkProps {

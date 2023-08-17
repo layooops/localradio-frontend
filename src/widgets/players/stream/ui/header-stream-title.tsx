@@ -1,20 +1,20 @@
-import type { FC } from 'react';
-import type { ScheduleQuery } from '@/entities/schedule/api/schedule.graphql.interface';
+import type { ScheduleQuery } from '@/entities/schedule/api';
+import type { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { ScheduleItemLink } from '@/entities/schedule/ui/schedule-item-link';
-import { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { STREAM_DISABLED_TITLE } from '@/shared/lib/constants/common';
+import { STREAM_DISABLED_TITLE } from '@/shared/lib/constants/contants';
 
 interface HeaderStreamTitleProps {
   eventSchedulesFixed: ScheduleQuery['eventSchedulesFixed'];
 }
 
-export const HeaderStreamTitle: FC<HeaderStreamTitleProps> = ({
+export const HeaderStreamTitle = ({
   eventSchedulesFixed,
-}) => {
+}: HeaderStreamTitleProps) => {
   return (
     <div className='flex pr-2'>
       <span>{STREAM_DISABLED_TITLE}</span>
-      {eventSchedulesFixed && eventSchedulesFixed.length > 0 && (
+      {Array.isArray(eventSchedulesFixed) && (
         <div className='flex gap-1'>
           <div>
             .&nbsp; Next broadcast{' '}

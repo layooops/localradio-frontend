@@ -1,3 +1,4 @@
+import type { MixPageProps } from '@/pages/mix-page';
 import type {
   GetServerSideProps,
   GetServerSidePropsContext,
@@ -5,13 +6,13 @@ import type {
   NextPage,
 } from 'next';
 import type { ParsedUrlQuery } from 'querystring';
-import { defaultMixes } from '@/defaults/defaults';
-import { MixPageProps } from '@/pages/mix';
-import { getMixPageData } from '@/pages/mix/api/get-mix-page-data';
-import { MixPage } from '@/pages/mix/ui/mix-page';
+
+import { defaultMixes } from '@/entities/mix/api';
+import { MixPage } from '@/pages/mix-page';
+import { getMixPageData } from '@/pages/mix-page/api/get-mix-page-data';
 import { SITE_URL } from '@/shared/config/environment';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { setSeoAltText } from '@/shared/lib/set-seo-alt-text';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { setSeoAltText } from '@/shared/lib/helpers/set-seo-alt-text';
 import { Seo } from '@/shared/ui/seo/seo';
 
 const BaseUrl = SITE_URL && new URL(SITE_URL);
@@ -21,14 +22,16 @@ const Page: NextPage<MixPageProps> = (props) => {
 
   const imageSeo = attributes?.image.data?.attributes?.url;
 
+  const guestAttributes = attributes?.guests?.data[0].attributes;
+
   const seoMixDescription = getDescription(attributes);
-  const seoGuestDescription = getDescription(
-    attributes?.guests?.data[0]?.attributes
-  );
+  const seoGuestDescription = getDescription(guestAttributes);
   const seoShowDescription = getDescription(attributes?.show?.data?.attributes);
 
+  const hasGenres = Array.isArray(attributes?.genres?.data);
+
   const genresNames =
-    attributes?.genres?.data && attributes.genres.data.length > 0
+    attributes?.genres?.data && hasGenres
       ? 'Playing ' +
         attributes.genres.data.map((mix) => mix.attributes?.name) +
         '. '
@@ -52,13 +55,13 @@ const Page: NextPage<MixPageProps> = (props) => {
     headline: fullSeoTitle,
     author: {
       '@type': 'Person',
-      name: attributes?.guests?.data[0]?.attributes?.name ?? 'Local Radio',
+      name: guestAttributes?.name ?? 'Local Radio',
       // The full URL must be provided, including the website's domain.
       url: new URL(
-        attributes?.guests?.data[0]?.attributes?.slug
-          ? `archive/residents/${attributes.guests.data[0]?.attributes?.slug}`
+        guestAttributes?.slug
+          ? `archive/residents/${guestAttributes.slug}`
           : '',
-        BaseUrl
+        BaseUrl,
       ),
     },
     image: imageSeo,
@@ -84,11 +87,11 @@ interface MixPageParams extends ParsedUrlQuery {
 }
 
 export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
+  context: GetServerSidePropsContext,
 ): Promise<GetServerSidePropsResult<MixPageProps>> => {
   context.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
   const { mix } = context.params as MixPageParams;
   try {
@@ -99,7 +102,7 @@ export const getServerSideProps: GetServerSideProps = async (
     };
   } catch (error) {
     const mixes = defaultMixes.data.find(
-      (data) => data.attributes?.slug === mix
+      (data) => data.attributes?.slug === mix,
     );
     if (mixes)
       return {

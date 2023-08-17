@@ -1,10 +1,12 @@
-import { useUnit } from 'effector-react';
 import Marquee from 'react-fast-marquee';
+import { useUnit } from 'effector-react';
+
 import {
   $currentGlobalPlayer,
   setCurrentGlobalPlayerEv,
 } from '@/features/choose-global-player/model/current-global-player.model';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import {
   $isClickedStreamPlay,
   $streamError,
@@ -52,7 +54,7 @@ export const HeaderStreamMarqueeButton = ({
       onClick={handleClick}
       className={clsxm(
         'order-2 flex h-full w-full items-center uppercase transition-colors  lg:order-1   2xl:gap-1',
-        { 'cursor-default': !streamIsLoaded }
+        { 'cursor-default': !streamIsLoaded },
       )}
     >
       {streamIsAvailable && streamIsLoaded && (

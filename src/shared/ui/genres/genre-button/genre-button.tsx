@@ -1,17 +1,18 @@
-import { FC } from 'react';
+import type { GenreButtonProps } from '../types/genre.interface';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import { Button } from '../../button/button';
-import { GenreButtonProps } from '../types/genre.interface';
 
 type GenreBProps = Omit<GenreButtonProps, 'type'>;
 
-export const GenreButton: FC<GenreBProps> = ({
+export const GenreButton = ({
   sizeVariant,
   colorVariant,
   slug,
   title,
   variant,
-}) => {
+}: GenreBProps) => {
   return (
     <Button
       variant='clear'
@@ -36,7 +37,7 @@ export const GenreButton: FC<GenreBProps> = ({
         },
         {
           'bg-primary text-black': colorVariant === 'primary',
-        }
+        },
       )}
       href={`/archive/genres/${slug}`}
     >

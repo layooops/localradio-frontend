@@ -1,10 +1,14 @@
+import type { ScheduleQuery } from '@/entities/schedule/api';
+
 import { sample } from 'effector';
 import { STREAM_ERROR_TITLE } from 'pages/api/icecast';
-import type { ScheduleQuery } from '@/entities/schedule/api/schedule.graphql.interface';
+
 import {
   STREAM_DISABLED_TITLE,
   STREAM_OFFLINE_TITLE,
-} from '@/shared/lib/constants/common';
+} from '@/shared/lib/constants/contants';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
+
 import { player } from '../../player-domain';
 import { HeaderStreamTitle } from '../ui/header-stream-title';
 
@@ -14,7 +18,7 @@ export const isStreamLoadedEv = stream.createEvent<boolean>();
 export const $isStreamLoaded = stream.createStore<boolean>(false);
 export const $isClickedStreamPlay = stream.createStore<boolean>(false);
 export const $streamTitle = stream.createStore<string | JSX.Element>(
-  STREAM_DISABLED_TITLE
+  STREAM_DISABLED_TITLE,
 );
 export const $streamError = stream.createStore<Error | null>(null);
 
@@ -33,7 +37,7 @@ export const fetchStreamTitleFx = stream.createEffect(async () => {
   try {
     const res = await fetch('/api/icecast');
     const eventSchedulesFixed = await fetch('/api/schedule').then((res) =>
-      res.json()
+      res.json(),
     );
 
     if (res.ok) {
@@ -41,7 +45,7 @@ export const fetchStreamTitleFx = stream.createEffect(async () => {
       return data.title;
     }
 
-    if (!eventSchedulesFixed.error && res.status === 404) {
+    if (!eventSchedulesFixed.error && res.status === HTTP_STATUS.NOT_FOUND) {
       throw new Error(STREAM_DISABLED_TITLE);
     }
     if (eventSchedulesFixed.error) {
@@ -62,7 +66,7 @@ const fetchStreamTitleWithScheduleFx = stream.createEffect(
     }
 
     return title;
-  }
+  },
 );
 
 sample({

@@ -1,13 +1,14 @@
-import { ApolloError } from '@apollo/client';
+import type { MixEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { ApolloError } from '@apollo/client';
 import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { defaultMixes } from '@/defaults/defaults';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { MixApi } from '@/entities/mix/api';
+import { defaultMixes } from '@/entities/mix/api/default-mixes';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
-import { MixEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -36,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
   GetServerSidePropsResult<PageProps>
 > => {
   try {
-    const { mixes } = await ArchiveApi.fetchMixes({ limit: 12 });
+    const { mixes } = await MixApi.fetchMixes({ limit: 12 });
     return {
       props: { mixes: mixes as MixEntityResponseCollection },
     };

@@ -1,11 +1,12 @@
-import { GetServerSideProps, NextPage } from 'next/types';
-import { ParsedUrlQuery } from 'querystring';
-import { ShopItemsDocument } from '@/entities/store/items/api/shop-items.graphql.interface';
+import type { ShopItemEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { GetServerSideProps, NextPage } from 'next/types';
+import type { ParsedUrlQuery } from 'querystring';
+
+import { ShopApi } from '@/entities/shop/api';
 import { ShopPage } from '@/pages/shop/ui/shop-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type { ShopItemEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { getMarkdownToHtml } from '@/shared/lib/helpers/markdown-to-html';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -43,13 +44,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     data: { shopItems },
   } = await client.query({
-    query: ShopItemsDocument,
+    query: ShopApi.ShopItemsDocument,
     variables: {
       filters: { slug: { eq: product as string } },
     },
   });
 
-  if (shopItems?.data.length === 0) {
+  if (!Array.isArray(shopItems?.data)) {
     return {
       notFound: true,
     };
@@ -58,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const productName = shopItems?.data[0].attributes?.title;
 
   const description = await getMarkdownToHtml(
-    shopItems?.data[0].attributes?.description
+    shopItems?.data[0].attributes?.description,
   );
 
   return {

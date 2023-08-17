@@ -1,4 +1,4 @@
-import { CheckoutPage } from '@/pages/shop/checkout/checkout-page';
+import { CheckoutPage } from '@/pages/checkout-page/ui/checkout-page';
 import { Seo } from '@/shared/ui/seo/seo';
 
 const Page = () => {

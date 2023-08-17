@@ -1,9 +1,13 @@
-import Link from 'next/link';
+import type { CardProps } from '../card.interface';
+
 import { memo } from 'react';
+
+import Link from 'next/link';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import { Icon } from '../../icons';
 import { NextImage } from '../../next-image/next-image';
-import { CardProps } from '../card.interface';
 
 interface CardImageProps
   extends Pick<CardProps, 'variant' | 'className' | 'href'> {
@@ -25,7 +29,7 @@ export const CardImage = ({
           loading='lazy'
           className={clsxm(
             { 'relative aspect-square w-full': variant !== 'shop' },
-            className
+            className,
           )}
           sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,

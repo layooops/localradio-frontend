@@ -1,5 +1,7 @@
 import { useUnit } from 'effector-react';
+
 import Link from 'next/link';
+
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { LocalSocialsList } from '@/widgets/layouts/main/local-socials-List/ui/local-socials-list';
@@ -19,7 +21,7 @@ export const MainFooter = () => {
           {
             'pb-[var(--player-height)]':
               currentGlobalPlayer === 'soundcloud' && isOpenedScWidget,
-          }
+          },
         )}
       >
         <div className='flex  h-full  flex-col gap-1.5 px-1.5 text-[0.95rem] font-medium uppercase leading-[1] text-white sm:gap-2  sm:px-2.5  md:text-[1rem]  lg:w-fit lg:px-2 lg:pb-1.5   xl:px-3.5 xl:text-[1.12rem] 2xl:pb-2.5'>

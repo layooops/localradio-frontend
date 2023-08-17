@@ -1,20 +1,23 @@
-import clsx from 'clsx';
-import Link, { type LinkProps } from 'next/link';
-import type { FC, HTMLAttributes } from 'react';
-import type { Maybe } from 'yup';
 import type { Artist } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { HTMLAttributes } from 'react';
+import type { Maybe } from 'yup';
+
+import clsx from 'clsx';
+
+import Link, { type LinkProps } from 'next/link';
+
 import { ScheduleItemIcon } from './schedule-item-icon';
 
-interface ScheduleItemLink extends HTMLAttributes<LinkProps> {
+interface ScheduleItemLinkProps extends HTMLAttributes<LinkProps> {
   artist?: Maybe<Artist>;
   variant: 'black' | 'primary' | 'empty';
 }
 
-export const ScheduleItemLink: FC<ScheduleItemLink> = ({
+export const ScheduleItemLink = ({
   artist,
   className,
   variant = 'primary',
-}) => {
+}: ScheduleItemLinkProps) => {
   let href = '';
   if (artist?.guest?.attributes?.slug)
     href = '/archive/residents/' + artist.guest.attributes.slug;
@@ -36,7 +39,7 @@ export const ScheduleItemLink: FC<ScheduleItemLink> = ({
             variant === 'black',
         },
         { 'text-gray-color hover:text-secondary-dark': variant === 'empty' },
-        className
+        className,
       )}
     >
       <div
@@ -44,7 +47,7 @@ export const ScheduleItemLink: FC<ScheduleItemLink> = ({
           {
             'px-2 py-[6px] leading-[1.05] lg:pl-3 lg:pr-2': variant !== 'empty',
           },
-          { 'font-semibold': variant === 'empty' }
+          { 'font-semibold': variant === 'empty' },
         )}
       >
         {artist?.title}

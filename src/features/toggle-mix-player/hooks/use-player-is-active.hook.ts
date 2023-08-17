@@ -1,10 +1,10 @@
-import { useUnit } from 'effector-react';
+import type { CurrentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
+import type { Maybe } from 'yup';
+
 import { useEffect, useState } from 'react';
-import { Maybe } from 'yup';
-import {
-  $currentGlobalPlayer,
-  CurrentGlobalPlayer,
-} from '@/features/choose-global-player/model/current-global-player.model';
+import { useUnit } from 'effector-react';
+
+import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
 import { $linkToMix } from '@/widgets/players/soundcloud/model/soundcloud.model';
 
 interface UsePlayerIsActive {
@@ -23,7 +23,7 @@ export const usePlayerIsActive = (props: UsePlayerIsActive) => {
 
   useEffect(() => {
     setIsActive(
-      currentGlobalPlayer === playerVariant && linkToMix === slug && isPlaying
+      currentGlobalPlayer === playerVariant && linkToMix === slug && isPlaying,
     );
   }, [currentGlobalPlayer, linkToMix, slug, isPlaying, playerVariant]);
 

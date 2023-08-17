@@ -1,7 +1,9 @@
-import { useUnit } from 'effector-react';
 import { memo } from 'react';
+import { useUnit } from 'effector-react';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
+
 import { $isStreamLoaded, $streamIsAvailable } from '../model/stream';
 import { HeaderStreamMarqueeButton } from './header-stream-marquee-button';
 
@@ -30,7 +32,7 @@ export const HeaderStreamPlayer = () => {
             'order-1 flex aspect-square h-full w-[35px] cursor-default items-center justify-center whitespace-nowrap bg-black px-1.5 uppercase text-primary lg:order-2  lg:aspect-auto lg:w-auto  lg:justify-start lg:px-2',
             {
               'text-[red]': streamIsAvailable,
-            }
+            },
           )}
         >
           <span
@@ -46,7 +48,7 @@ export const HeaderStreamPlayer = () => {
               'h-[6px] w-[6px] rounded-full  bg-gray-color lg:hidden',
               {
                 'animate-pulse-slow bg-[red]': streamIsAvailable,
-              }
+              },
             )}
           />
         </div>

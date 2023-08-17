@@ -1,6 +1,8 @@
+import type { BaseInputProps } from '../types/input.interface';
+
 import { forwardRef } from 'react';
+
 import { BaseInput } from '../base-input';
-import { BaseInputProps } from '../types/input.interface';
 
 export const InputErrorWrapper = forwardRef<HTMLInputElement, BaseInputProps>(
   (props, ref) => {
@@ -15,5 +17,5 @@ export const InputErrorWrapper = forwardRef<HTMLInputElement, BaseInputProps>(
         )}
       </div>
     );
-  }
+  },
 );

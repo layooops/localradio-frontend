@@ -1,6 +1,9 @@
-import Link from 'next/link';
 import type { Maybe } from 'yup';
+
+import Link from 'next/link';
+
 import { Icon } from '@/shared/ui/icons';
+
 import { ScheduleIconWrapperWithMemo } from './schedule-icon-wrapper';
 
 interface ScheduleLocationProps {

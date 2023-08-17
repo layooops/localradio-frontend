@@ -1,5 +1,5 @@
-import { Maybe } from 'yup';
-import { PlayerButtonProps } from '../types/sc-toggle.interface';
+import type { PlayerButtonProps } from '../types/sc-toggle.interface';
+import type { Maybe } from 'yup';
 
 export interface UsePlayerProps
   extends Pick<PlayerButtonProps, 'mixId' | 'mixLink'> {

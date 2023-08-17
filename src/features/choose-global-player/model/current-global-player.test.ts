@@ -1,4 +1,5 @@
 import { fork } from 'effector';
+
 import {
   $currentGlobalPlayer,
   currentPlayer,

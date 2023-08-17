@@ -1,16 +1,18 @@
+import type { SlugParams } from '@/shared/api/apollo/slug-params';
+import type {
+  MixEntityResponseCollection,
+  MoodEntity,
+} from '@/shared/api/graphql/__generated__/schema.graphql';
 import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { MixApi } from '@/entities/mix/api';
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import { SlugParams } from '@/shared/api/apollo/slug-params';
-import type {
-  MixEntityResponseCollection,
-  MoodEntity,
-} from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 import { TextWrapper } from '@/shared/ui/text-wrapper/text-wrapper';
 
@@ -47,18 +49,18 @@ const Page: NextPage<PageProps> = ({ mood, mixes, slug }: PageProps) => {
 export default Page;
 
 export const getServerSideProps: GetServerSideProps = async (
-  context
+  context,
 ): Promise<GetServerSidePropsResult<PageProps>> => {
   context.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
   const { slug } = context.params as SlugParams;
 
   const {
     data: { mood },
   } = await client.query({
-    query: ArchiveApi.MoodDocument,
+    query: MixArchiveInnerApi.MoodDocument,
     variables: { slug },
   });
   if (!mood?.data) {
@@ -67,7 +69,7 @@ export const getServerSideProps: GetServerSideProps = async (
     };
   }
 
-  const { mixes } = await ArchiveApi.fetchMixes({
+  const { mixes } = await MixApi.fetchMixes({
     filters: { moods: { slug: { eq: slug } } },
   });
 

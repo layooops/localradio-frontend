@@ -1,5 +1,5 @@
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
-import * as Types from '../../../../shared/api/graphql/__generated__/schema.graphql';
+import type * as Types from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 export type StreamIsLiveQueryVariables = Types.Exact<{ [key: string]: never }>;
 

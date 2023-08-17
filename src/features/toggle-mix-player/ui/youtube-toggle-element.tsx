@@ -1,6 +1,7 @@
-import { useUnit } from 'effector-react';
 import { useState } from 'react';
 import YoutubePlayer from 'react-player/youtube';
+import { useUnit } from 'effector-react';
+
 import {
   $currentGlobalPlayer,
   setCurrentGlobalPlayerEv,
@@ -11,6 +12,7 @@ import {
   setCurrentYoutubeLinkEv,
   setIsYoutubePlayingEv,
 } from '@/widgets/players/youtube/model/youtube.model';
+
 import {
   $currentMixPlayer,
   setMixPlayerErrorEv,
@@ -53,7 +55,7 @@ export const YoutubeToggleElement = ({
     <div
       className={clsxm(
         className,
-        clsxm(page !== 'bottom' && currentMixPlayer !== 'video' && 'hidden')
+        clsxm(page !== 'bottom' && currentMixPlayer !== 'video' && 'hidden'),
       )}
     >
       <YoutubePlayer

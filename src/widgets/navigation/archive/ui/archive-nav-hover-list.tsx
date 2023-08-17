@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Button } from '@/shared/ui/button/button';
 
 interface ArchiveNavBarProps {
@@ -12,14 +11,15 @@ interface ArchiveNavBarProps {
   variant: 'mood' | 'genres';
 }
 
-export const ArchiveNavHoverList: FC<ArchiveNavBarProps> = ({
+export const ArchiveNavHoverList = ({
   list,
   index,
   variant,
-}) => {
+}: ArchiveNavBarProps) => {
+  const slug = list && list[0]?.slug;
   return (
     <ul
-      key={list && list[0]?.slug && list[0].slug + index}
+      key={slug && slug + index}
       className='flex flex-col justify-center gap-1'
     >
       {list?.map((item) => (

@@ -1,7 +1,10 @@
-import Link from 'next/link';
+import type { HeaderLinkProps } from './header-link';
+
 import { memo } from 'react';
+
+import Link from 'next/link';
+
 import { Icon } from '@/shared/ui/icons';
-import { HeaderLinkProps } from './header-link';
 
 export const HeaderMobileLink = ({ href, text }: HeaderLinkProps) => {
   return (

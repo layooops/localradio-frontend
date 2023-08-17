@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { client } from '@/shared/api/apollo/apollo-client';
 import { RandomMixDocument } from '@/widgets/players/soundcloud/api/random-mix.graphql.interface';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const {
@@ -13,8 +14,10 @@ export default async function handler(
       query: RandomMixDocument,
       fetchPolicy: 'network-only',
     });
-    res.status(200).send({ randomMix });
+    res.status(HTTP_STATUS.OK).send({ randomMix });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }

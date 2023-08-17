@@ -1,8 +1,11 @@
-import Link from 'next/link';
+import type { CardDateProps } from './card-date.interface';
+
 import { memo } from 'react';
+
+import Link from 'next/link';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
-import { formatDate } from '@/shared/lib/format-date';
-import { CardDateProps } from './card-date.interface';
+import { formatDate } from '@/shared/lib/helpers/format-date';
 
 export const CardDate = ({
   date,
@@ -26,7 +29,7 @@ export const CardDate = ({
         {
           'text-[clamp(0.6rem,1.5vw,0.75rem)] xl:text-[0.875rem]':
             variant === 'page',
-        }
+        },
       )}
     >
       {(variant === 'guest' || variant === 'show') && (
@@ -52,7 +55,7 @@ export const CardDate = ({
           href={link}
           className={clsxm(
             'font-semibold leading-none hover:text-secondary-dark',
-            { 'font-medium underline underline-offset-2': variant === 'page' }
+            { 'font-medium underline underline-offset-2': variant === 'page' },
           )}
         >
           {variant === 'show' || variant === 'guest' ? formattedDate : text}

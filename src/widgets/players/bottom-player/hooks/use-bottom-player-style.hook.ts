@@ -1,6 +1,8 @@
-import { useUnit } from 'effector-react';
 import { useEffect, useMemo, useState } from 'react';
+import { useUnit } from 'effector-react';
+
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
+
 import {
   $isOpenedWidget,
   $isSCPlaying,
@@ -40,7 +42,7 @@ export const useBottomPlayerStyleHook = () => {
 
   useEffect(() => {
     setBottomPlayerClasses(
-      [baseClasses, playerPositionStyles, playerTranslateStyles].join(' ')
+      [baseClasses, playerPositionStyles, playerTranslateStyles].join(' '),
     );
   }, [playerPositionStyles, playerTranslateStyles]);
 

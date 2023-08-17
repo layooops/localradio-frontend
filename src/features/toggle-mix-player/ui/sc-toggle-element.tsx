@@ -1,9 +1,12 @@
+import type { PlayerElementProps } from '../types/sc-toggle.interface';
+import type { Mix } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { useUnit } from 'effector-react';
-import { Mix } from '@/shared/api/graphql/__generated__/schema.graphql';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { NextImage } from '@/shared/ui/next-image/next-image';
+
 import { $currentMixPlayer } from '../model/current-mix-player.model';
-import { PlayerElementProps } from '../types/sc-toggle.interface';
 import { SCToggleButton } from './sc-toggle-button';
 
 export const SCToggleElement = ({
@@ -23,7 +26,7 @@ export const SCToggleElement = ({
       className={clsxm(
         'hidden  h-full text-[0.8rem] font-medium uppercase  xl:text-[0.875rem] 2xl:text-[0.95rem]',
         { 'flex justify-center': currentMixPlayer === 'audio' },
-        { 'aspect-square lg:aspect-video': page === 'mix' }
+        { 'aspect-square lg:aspect-video': page === 'mix' },
       )}
     >
       <div className='relative flex aspect-square flex-col items-center justify-center md:w-auto'>

@@ -3,10 +3,12 @@ import type {
   Maybe,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { Description } from '@/shared/lib/types/description.interface';
+
 import { Icon } from '@/shared/ui/icons';
+
 import { DescriptionGroup } from '../../shared/ui/description/description-group';
 import { NextImage } from '../../shared/ui/next-image/next-image';
-import { SocialsList } from '../../shared/ui/socials-list/socials-list-mix-page';
+import { SocialsList } from '../../shared/ui/socials-list/socials-list';
 
 interface PageExtraContentWrapperProps {
   title?: string;

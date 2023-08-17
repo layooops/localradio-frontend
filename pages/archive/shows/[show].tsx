@@ -1,20 +1,21 @@
 import type {
-  GetServerSideProps,
-  GetServerSidePropsResult,
-  NextPage,
-} from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
-import { ArchivePage } from '@/pages/archive/ui/archive-page';
-import { PageExtraContent } from '@/pages/ui/page-extra-content-wrapper';
-import { client } from '@/shared/api/apollo/apollo-client';
-import {
   MixEntityResponseCollection,
   Query,
   ShowEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
 import type { Description } from '@/shared/lib/types/description.interface';
+import type {
+  GetServerSideProps,
+  GetServerSidePropsResult,
+  NextPage,
+} from 'next';
+
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
+import { ArchivePage } from '@/pages/archive/ui/archive-page';
+import { PageExtraContent } from '@/pages/ui/page-extra-content-wrapper';
+import { client } from '@/shared/api/apollo/apollo-client';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { getMarkdownToHtml } from '@/shared/lib/helpers/markdown-to-html';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -55,11 +56,11 @@ const Page: NextPage<PageProps> = ({ shows, show, mixes, description }) => {
 export default Page;
 
 export const getServerSideProps: GetServerSideProps = async (
-  context
+  context,
 ): Promise<GetServerSidePropsResult<PageProps>> => {
   context.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
   const { show } = context.params as { show: string };
 
@@ -67,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (
     const {
       data: { shows },
     } = await client.query({
-      query: ArchiveApi.ShowsDocument,
+      query: MixArchiveInnerApi.ShowsDocument,
       variables: { limit: -1, filters: { slug: { eq: show } } },
     });
 
@@ -82,7 +83,7 @@ export const getServerSideProps: GetServerSideProps = async (
     const {
       data: { mixes },
     } = await client.query<Query>({
-      query: ArchiveApi.MixesDocument,
+      query: MixArchiveInnerApi.MixesDocument,
       variables: { filters: { show: { slug: { eq: show } } } },
     });
 

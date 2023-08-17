@@ -1,4 +1,4 @@
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 export interface GenresFragment {
   __typename?: 'GenreEntity';

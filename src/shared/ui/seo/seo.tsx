@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 import { SITE_URL } from '@/shared/config/environment';
 
 const defaultMeta = {

@@ -1,10 +1,12 @@
-import { clsxm } from '@/shared/lib/helpers/clsxm';
-import {
+import type {
   DynamicComponentProps,
-  Heading,
   HeadingProps,
   ValidHeadingTags,
 } from './heading';
+
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+
+import { Heading } from './heading';
 
 export const SecondHeader = <T extends ValidHeadingTags>({
   text,

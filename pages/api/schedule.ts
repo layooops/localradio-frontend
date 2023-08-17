@@ -1,16 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ScheduleDocument } from '@/entities/schedule/api/schedule.graphql.interface';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+import { ScheduleApi } from '@/entities/schedule/api';
 import { client } from '@/shared/api/apollo/apollo-client';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const eventSchedulesFixed = await fetchEventSchedulesFixed();
-    res.status(200).send({ eventSchedulesFixed });
+    res.status(HTTP_STATUS.OK).send({ eventSchedulesFixed });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }
 
@@ -18,7 +21,7 @@ export const fetchEventSchedulesFixed = async () => {
   const {
     data: { eventSchedulesFixed },
   } = await client.query({
-    query: ScheduleDocument,
+    query: ScheduleApi.ScheduleDocument,
     fetchPolicy: 'no-cache',
   });
 

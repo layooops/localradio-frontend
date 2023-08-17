@@ -1,5 +1,7 @@
-import { createNameHelper, FormValidateParams } from 'effector-react-form';
+import type { FormValidateParams } from 'effector-react-form';
 import type { ValidationError } from 'yup';
+
+import { createNameHelper } from 'effector-react-form';
 import { object } from 'yup';
 
 export function createObjectValidator<Values extends object, Meta>(obj: {
@@ -14,7 +16,8 @@ export function createObjectValidator<Values extends object, Meta>(obj: {
       schema.validateSync(values, { strict: true, abortEarly: false });
     } catch (error) {
       const errorsArr = (error as ValidationError).inner;
-      if (errorsArr.length > 0) {
+      const hasErrors = Array.isArray(errorsArr);
+      if (hasErrors) {
         errorsArr.forEach((error) => {
           if (error.path !== undefined) {
             errors[nameHelper.getStr(error.path as keyof Values)] =

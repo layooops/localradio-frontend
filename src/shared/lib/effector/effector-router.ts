@@ -1,4 +1,5 @@
 import { createDomain } from 'effector';
+
 import singletonRouter, { type NextRouter } from 'next/router';
 
 export const routerDomain = createDomain('router');
@@ -25,7 +26,7 @@ const connectRouterToEffector = (nextRouter: any) => {
     router.events.on('routeChangeComplete', routeChangeComplete);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     router.events.on('routeChangeError', (err, url) =>
-      routeChangeError([err, url])
+      routeChangeError([err, url]),
     );
     router.events.on('beforeHistoryChange', beforeHistoryChange);
     router.events.on('hashChangeStart', hashChangeStart);

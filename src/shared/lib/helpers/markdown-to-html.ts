@@ -1,7 +1,8 @@
+import type { Description } from '../types/description.interface';
+import type { Maybe } from 'yup';
+
 import { remark } from 'remark';
 import html from 'remark-html';
-import type { Maybe } from 'yup';
-import { Description } from '../types/description.interface';
 
 async function markdownGen(markdown: string) {
   // TODO: Убрать any когда пофиксят
@@ -19,7 +20,7 @@ export const markdownToHtml = async (data: Maybe<string>) => {
 export type MarkdownResponse = Maybe<Description> | Maybe<string>;
 
 export const getMarkdownToHtml = async (
-  data?: Description | null | string
+  data?: Description | null | string,
 ): Promise<MarkdownResponse> => {
   if (typeof data === 'string') return markdownToHtml(data);
   if (typeof data === 'object') {

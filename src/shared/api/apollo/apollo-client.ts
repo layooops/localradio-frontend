@@ -1,11 +1,13 @@
+import type { DefaultOptions } from '@apollo/client';
+
 import {
   ApolloClient,
   createHttpLink,
-  DefaultOptions,
   gql,
   InMemoryCache,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
 import { API_DOMAIN, API_TOKEN } from '@/shared/config/environment';
 
 const typeDefs = gql`

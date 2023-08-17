@@ -1,22 +1,25 @@
+import type { HTMLAttributes } from 'react';
+
 import clsx from 'clsx';
-import type { FC, HTMLAttributes } from 'react';
+
 import { Icon } from '@/shared/ui/icons';
+
 import { ScheduleIconWrapperWithMemo } from './schedule-icon-wrapper';
 
 interface ScheduleItemIconProps extends HTMLAttributes<HTMLDivElement> {
   variant: 'info' | 'local' | null;
 }
 
-export const ScheduleItemIcon: FC<ScheduleItemIconProps> = ({
+export const ScheduleItemIcon = ({
   variant,
   className,
-}) => {
+}: ScheduleItemIconProps) => {
   if (variant === 'local')
     return (
       <ScheduleIconWrapperWithMemo
         className={clsx(
           'h-full fill-black [&>*]:-translate-x-[1px]',
-          className
+          className,
         )}
       >
         <Icon.LogoShortIcon className='h-3 lg:h-[18px]' />
@@ -28,7 +31,7 @@ export const ScheduleItemIcon: FC<ScheduleItemIconProps> = ({
       <ScheduleIconWrapperWithMemo
         className={clsx(
           'h-full font-semibold [&>*]:-translate-x-[1px]',
-          className
+          className,
         )}
       >
         <span>!</span>

@@ -1,10 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { client } from '@/shared/api/apollo/apollo-client';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
 import { StreamIsLiveDocument } from '@/widgets/players/stream/api/stream-is-live.graphql.interface';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const {
@@ -13,8 +15,10 @@ export default async function handler(
       query: StreamIsLiveDocument,
       fetchPolicy: 'no-cache',
     });
-    res.status(200).send({ streamIsLive });
+    res.status(HTTP_STATUS.OK).send({ streamIsLive });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }

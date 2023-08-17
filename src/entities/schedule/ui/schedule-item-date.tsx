@@ -1,12 +1,15 @@
-import type { Maybe } from 'yup';
 import type { PopularityResponse } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { TodayOrTomorrow } from '@/shared/lib/helpers/is-today-or-tomorrow';
+import type { TodayOrTomorrow } from '@/shared/lib/helpers/is-today-or-tomorrow';
+import type { Maybe } from 'yup';
 
 interface ScheduleItemDateProps {
   todayOrTomorrow: TodayOrTomorrow;
   isStreaming: Maybe<boolean>;
   fixedDate?: PopularityResponse['fixedDate'];
 }
+
+const FIRST_LETTER_INDEX = 0;
+const SECOND_LETTER_INDEX = 1;
 
 export const ScheduleItemDate = ({
   todayOrTomorrow,
@@ -16,7 +19,8 @@ export const ScheduleItemDate = ({
   if (todayOrTomorrow && !isStreaming)
     return (
       <div>
-        {todayOrTomorrow.charAt(0).toUpperCase() + todayOrTomorrow.slice(1)}
+        {todayOrTomorrow.charAt(FIRST_LETTER_INDEX).toUpperCase() +
+          todayOrTomorrow.slice(SECOND_LETTER_INDEX)}
       </div>
     );
 

@@ -1,10 +1,13 @@
+import type { CheckoutForm } from './checkout-form.interface';
+import type { Maybe } from 'yup';
+
 import { createEffect, sample } from 'effector';
-import { Maybe } from 'yup';
-import { store } from '@/entities/store/factory/shop-factory.model';
-import { $products } from '@/entities/store/items/model/shop.model';
+
+import { store } from '@/entities/cart/model/shop-factory.domain';
+import { $products } from '@/entities/shop/model/shop.model';
 import { pushFx } from '@/shared/lib/effector/effector-router';
+
 import { checkoutForm } from './checkout.form';
-import { CheckoutForm } from './checkout-form.interface';
 
 const SUCCESS_URL = '/shop/success-order';
 
@@ -30,7 +33,7 @@ const createOrderFx = createEffect(
       }).then((res) => res.json());
       return data;
     }
-  }
+  },
 );
 
 sample({
@@ -42,11 +45,11 @@ sample({
 sample({
   source: { formState: checkoutForm.$form, products: $products },
   fn: ({ formState, products }) =>
-    products.length > 0 &&
+    Array.isArray(products) &&
     formState.submitted &&
     !formState.hasError &&
     !formState.hasOuterError &&
-    true,
+    true, // TODO: Отрефакторить это
   target: $submitted,
 });
 

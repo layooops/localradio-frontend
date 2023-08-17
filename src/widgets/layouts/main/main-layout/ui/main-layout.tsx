@@ -1,21 +1,25 @@
 import clsx from 'clsx';
+
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
+
 import { MainFooter } from '../../main-footer/ui/main-footer';
 import { MainHeader } from '../../main-header/ui/main-header';
 
 const SearchModal = dynamic(() =>
   import('@/features/search/ui/search-modal').then(
-    (module) => module.SearchModal
-  )
+    (module) => module.SearchModal,
+  ),
 );
 const BottomPlayer = dynamic(() =>
   import('@/widgets/players/bottom-player/ui/bottom-player').then(
-    (module) => module.BottomPlayer
-  )
+    (module) => module.BottomPlayer,
+  ),
 );
 const CartModal = dynamic(() =>
-  import('@/entities/store/cart/ui/cart-modal').then((mod) => mod.CartModal)
+  import('@/features/cart/add-to-cart/ui/cart-modal').then(
+    (mod) => mod.CartModal,
+  ),
 );
 
 const myFont = localFont({

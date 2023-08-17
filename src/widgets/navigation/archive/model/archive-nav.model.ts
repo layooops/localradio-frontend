@@ -9,7 +9,7 @@ export const $clickedArchiveNavType = archiveNav.createStore<
   'mood' | 'genres' | null
 >(null);
 $clickedArchiveNavType.on(clickArchiveNavType, (prev, next) =>
-  prev === next ? null : next
+  prev === next ? null : next,
 );
 
 export const setNavHeightEv = archiveNav.createEvent<number>();

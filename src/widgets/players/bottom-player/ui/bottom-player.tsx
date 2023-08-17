@@ -1,5 +1,7 @@
 import { useUnit } from 'effector-react';
+
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
+
 import { $currentSCLink } from '../../soundcloud/model/soundcloud.model';
 import { SCPlayer } from '../../soundcloud/ui/sc-player';
 import { StreamPlayer } from '../../stream/ui/stream-audio';

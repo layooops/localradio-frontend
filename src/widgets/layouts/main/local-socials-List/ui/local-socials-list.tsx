@@ -1,14 +1,16 @@
 import clsx from 'clsx';
+
 import Link from 'next/link';
-import { FC } from 'react';
+
 import { LocalSocialIcons } from '@/shared/ui/socials-list/socials-icons';
+
 import { localSocialsNav } from '../lib/local-socials-nav';
 
 interface LocalSocialsListProps {
   variant: 'header' | 'footer';
 }
 
-export const LocalSocialsList: FC<LocalSocialsListProps> = ({ variant }) => {
+export const LocalSocialsList = ({ variant }: LocalSocialsListProps) => {
   return (
     <ul
       className={clsx(
@@ -16,7 +18,7 @@ export const LocalSocialsList: FC<LocalSocialsListProps> = ({ variant }) => {
         {
           header: 'gap-10 px-1.5 py-3 sm:gap-12 md:gap-20',
           footer: 'gap-1.5',
-        }[variant]
+        }[variant],
       )}
     >
       {localSocialsNav.map(({ ariaLabel, type, href }) => (
@@ -28,7 +30,7 @@ export const LocalSocialsList: FC<LocalSocialsListProps> = ({ variant }) => {
                   header: '',
                   footer:
                     'flex h-[26px] w-[26px] items-center justify-center rounded-md bg-white fill-black transition-all duration-100 hover:bg-white lg:h-[32px] lg:w-[32px]   lg:bg-black lg:fill-white lg:hover:fill-black',
-                }[variant]
+                }[variant],
               )}
               aria-label={ariaLabel}
               href={href}

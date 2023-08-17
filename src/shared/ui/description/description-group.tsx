@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import type { Maybe } from 'yup';
-import { clsxm } from '@/shared/lib/helpers/clsxm';
 import type { Description } from '@/shared/lib/types/description.interface';
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { Maybe } from 'yup';
+
+import { useState } from 'react';
+
+import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import { DescriptionButton } from './description-button';
 import { DescriptionItem } from './description-item';
 
@@ -34,7 +37,7 @@ export const DescriptionGroup = ({
         {
           'md:pl-1.5 lg:pl-2 xl:pl-3.5': sizeVariant === 'large',
         },
-        className
+        className,
       )}
     >
       {sizeVariant === 'large' && top}
@@ -45,7 +48,7 @@ export const DescriptionGroup = ({
           {
             'flex flex-col justify-between border-t-2 lg:flex-row lg:py-2.5 2xl:py-3':
               sizeVariant !== 'large',
-          }
+          },
         )}
       >
         {html.descriptionRu || html.descriptionEn ? (
@@ -53,7 +56,7 @@ export const DescriptionGroup = ({
             className={clsxm(
               'h-fit gap-1  border-black xl:gap-1.5',
               { 'flex flex-row': sizeVariant === 'large' },
-              { 'flex flex-row lg:flex-col  lg:pb-0': sizeVariant !== 'large' }
+              { 'flex flex-row lg:flex-col  lg:pb-0': sizeVariant !== 'large' },
             )}
           >
             <DescriptionButton

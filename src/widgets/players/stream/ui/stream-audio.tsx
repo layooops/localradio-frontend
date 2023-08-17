@@ -1,5 +1,7 @@
 import { useUnit } from 'effector-react';
-import { ICECAST_URL } from '@/shared/config/environment';
+
+import { AUDIO_STREAM_URL } from '@/shared/config/environment';
+
 import { useStreamAudioHook } from '../hooks/use-stream-audio.hook';
 import { isStreamLoadedEv } from '../model/stream';
 
@@ -10,7 +12,7 @@ export const StreamPlayer = () => {
   const { audioPlayer } = useStreamAudioHook();
   return (
     <audio
-      src={ICECAST_URL + '/live'}
+      src={AUDIO_STREAM_URL + '/live'}
       ref={audioPlayer}
       onLoadedMetadata={() => isStreamLoadedEvent(true)}
     >

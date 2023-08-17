@@ -1,14 +1,17 @@
+import type { FormField } from '../../model/checkout.form';
+
 import { useForm } from 'effector-react-form';
-import { FC } from 'react';
+
 import { Field } from '@/shared/form';
-import { checkoutForm, FormField } from '../../model/checkout.form';
+
+import { checkoutForm } from '../../model/checkout.form';
 
 interface FormBlock {
   title: string;
   data: FormField[];
 }
 
-export const CheckoutFormBlock: FC<FormBlock> = ({ title, data }) => {
+export const CheckoutFormBlock = ({ title, data }: FormBlock) => {
   const { controller } = useForm({
     form: checkoutForm,
   });

@@ -1,6 +1,8 @@
 import { useUnit } from 'effector-react';
 import { useForm } from 'effector-react-form';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
+
 import {
   checkoutForm,
   contactFormFields,
@@ -28,7 +30,7 @@ export const CheckoutForm = () => {
             'flex  w-fit bg-black px-4 py-3 uppercase leading-none text-primary',
             {
               'pointer-events-none  bg-white text-gray-300 ': submitIsDisabled,
-            }
+            },
           )}
           type='submit'
         >

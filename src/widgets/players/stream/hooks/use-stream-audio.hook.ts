@@ -1,6 +1,8 @@
-import { useUnit } from 'effector-react';
 import { useCallback, useEffect, useRef } from 'react';
+import { useUnit } from 'effector-react';
+
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
+
 import {
   $isClickedStreamPlay,
   $isStreamLoaded,

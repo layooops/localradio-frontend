@@ -1,8 +1,13 @@
+import type { SearchedData } from '../model/search.model';
+
+import { Fragment, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { useUnit } from 'effector-react';
+
 import { useRouter } from 'next/router';
-import { FC, Fragment, useEffect } from 'react';
+
 import { Icon } from '@/shared/ui/icons';
+
 import {
   $isOpenedSearchModal,
   $search,
@@ -11,7 +16,6 @@ import {
   $searchError,
   $startedSearch,
   openSearchModalEv,
-  SearchedData,
 } from '../model/search.model';
 import { SearchData } from './search-data';
 import { SearchFormWithMemo } from './search-form';
@@ -119,11 +123,11 @@ interface SearchInfoText {
   searchError: null | Error;
 }
 
-const SearchInfoText: FC<SearchInfoText> = ({
+const SearchInfoText = ({
   searchedData,
   searchValue,
   searchError,
-}) => {
+}: SearchInfoText) => {
   return (
     <div className='flex  flex-col justify-center gap-3    text-2xl font-semibold uppercase leading-none  text-black'>
       {(searchedData.mixes?.data.length || searchedData.genres?.data.length) &&

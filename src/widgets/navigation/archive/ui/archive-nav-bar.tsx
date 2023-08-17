@@ -1,10 +1,13 @@
+import type { ArchiveNavigationQuery } from '../api/navigation.graphql.interface';
+
+import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
-import { useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
+
+import { SWRFetcher } from '@/shared/lib/helpers/swr-fetcher';
 import { useScroll } from '@/shared/lib/hooks/use-scroll.hook';
-import SWRfetcher from '@/shared/lib/swr-fetcher';
-import { ArchiveNavigationQuery } from '../api/navigation.graphql.interface';
+
 import {
   $clickedArchiveNavType,
   $navHeight,
@@ -18,8 +21,11 @@ import { ArchiveNavItemWithMemo } from './archive-nav-item';
 export const ArchiveNavBar = () => {
   const { data: archiveNav } = useSWR<{ data?: ArchiveNavigationQuery }>(
     '/api/archive-nav',
-    SWRfetcher
+    SWRFetcher,
   );
+
+  const hasMoods = Array.isArray(archiveNav?.data?.moodsArray);
+  const hasGenres = Array.isArray(archiveNav?.data?.genresArray);
 
   const [hoveredEl, setHoveredEl] = useState<'mood' | 'genres' | null>(null);
   const elementRef = useRef<HTMLElement>(null);
@@ -46,9 +52,11 @@ export const ArchiveNavBar = () => {
     clickArchiveNav(null);
   }, [clickArchiveNav]);
 
-  const handleClick = (el: 'mood' | 'genres' | null) => {
+  const handleClickNav = (el: 'mood' | 'genres' | null) => {
     clickArchiveNav(el);
   };
+  const topOffset = 2;
+  const topPosition = navHeight - topOffset;
 
   return (
     <nav
@@ -63,62 +71,69 @@ export const ArchiveNavBar = () => {
         <ArchiveNavItemWithMemo text='All' link='/archive' />
         <ArchiveNavItemWithMemo text='Residents' link='/archive/residents' />
 
-        <li onClick={() => handleClick('mood')} className={styles['mood-item']}>
-          <div className='relative items-center justify-center tracking-[0.01em]  md:flex md:h-full md:w-full'>
-            Moods
-          </div>
+        <li className={styles['mood-item']}>
+          <button
+            type='button'
+            className='uppercase'
+            onClick={() => handleClickNav('mood')}
+          >
+            <div className='relative items-center justify-center tracking-[0.01em]  md:flex md:h-full md:w-full'>
+              Moods
+            </div>
+          </button>
         </li>
 
-        {archiveNav?.data?.moodsArray &&
-          archiveNav.data.moodsArray.length > 0 && (
-            <div
-              onMouseEnter={() => toggleHover('mood')}
-              onMouseLeave={() => toggleHover(null)}
-              style={{ top: navHeight - 2 }}
-              className={clsx(styles['mood-list'], {
-                [styles.active]:
-                  hoveredEl === 'mood' || clickedArchiveNavType === 'mood',
-              })}
-            >
-              {archiveNav.data.moodsArray.map((list, index) => (
-                <ArchiveNavHoverList
-                  key={'moodsArray ' + index}
-                  list={list}
-                  index={index}
-                  variant='mood'
-                />
-              ))}
-            </div>
-          )}
-        <li
-          onClick={() => handleClick('genres')}
-          className={styles['genres-item']}
-        >
-          <div className='relative items-center justify-center tracking-[0.01em]  md:flex md:h-full md:w-full'>
-            Genres
+        {hasMoods && (
+          <div
+            onMouseEnter={() => toggleHover('mood')}
+            onMouseLeave={() => toggleHover(null)}
+            style={{ top: topPosition }}
+            className={clsx(styles['mood-list'], {
+              [styles.active]:
+                hoveredEl === 'mood' || clickedArchiveNavType === 'mood',
+            })}
+          >
+            {archiveNav?.data?.moodsArray?.map((list, index) => (
+              <ArchiveNavHoverList
+                key={'moodsArray ' + index} // eslint-disable-line react/no-array-index-key
+                list={list}
+                index={index}
+                variant='mood'
+              />
+            ))}
           </div>
-        </li>
-        {archiveNav?.data?.genresArray &&
-          archiveNav.data.genresArray.length > 0 && (
-            <div
-              style={{ top: navHeight - 2 }}
-              onMouseEnter={() => toggleHover('genres')}
-              onMouseLeave={() => toggleHover(null)}
-              className={clsx(styles['genres-list'], {
-                [styles.active]:
-                  hoveredEl === 'genres' || clickedArchiveNavType === 'genres',
-              })}
-            >
-              {archiveNav.data.genresArray.map((list, index) => (
-                <ArchiveNavHoverList
-                  key={'genresArray ' + index}
-                  list={list}
-                  index={index}
-                  variant='genres'
-                />
-              ))}
+        )}
+        <li className={styles['genres-item']}>
+          <button
+            type='button'
+            className='uppercase'
+            onClick={() => handleClickNav('genres')}
+          >
+            <div className='relative items-center justify-center tracking-[0.01em]  md:flex md:h-full md:w-full'>
+              Genres
             </div>
-          )}
+          </button>
+        </li>
+        {hasGenres && (
+          <div
+            style={{ top: topPosition }}
+            onMouseEnter={() => toggleHover('genres')}
+            onMouseLeave={() => toggleHover(null)}
+            className={clsx(styles['genres-list'], {
+              [styles.active]:
+                hoveredEl === 'genres' || clickedArchiveNavType === 'genres',
+            })}
+          >
+            {archiveNav?.data?.genresArray?.map((list, index) => (
+              <ArchiveNavHoverList
+                key={'genresArray ' + index} // eslint-disable-line react/no-array-index-key
+                list={list}
+                index={index}
+                variant='genres'
+              />
+            ))}
+          </div>
+        )}
         <ArchiveNavItemWithMemo
           text='Shows'
           link='/archive/shows'

@@ -1,6 +1,8 @@
-import { useUnit } from 'effector-react';
-import Link from 'next/link';
 import { useEffect } from 'react';
+import { useUnit } from 'effector-react';
+
+import Link from 'next/link';
+
 import { setSuccessOrder } from '@/features/checkout/model/checkout.model';
 import { ArchiveSecondHeader } from '@/shared/ui/headings/archive-second-header';
 

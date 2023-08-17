@@ -1,8 +1,11 @@
-import './styles/globals.css';
 import { ApolloProvider } from '@apollo/client';
+
+import './styles/globals.css';
+
 import { client } from '@/shared/api/apollo/apollo-client';
 import { useFetchStreamTitle } from '@/widgets/layouts/main/main-layout/hooks/use-fetch-stream-title';
 import { MainLayout } from '@/widgets/layouts/main/main-layout/ui/main-layout';
+
 import { ErrorBoundaryProvider } from './provider/error-boundary-provider';
 
 export const AppWithProviders = ({ children }: React.PropsWithChildren) => {

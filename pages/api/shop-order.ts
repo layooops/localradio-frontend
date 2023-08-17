@@ -1,9 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { API_DOMAIN, API_TOKEN } from '@/shared/config/environment';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     const order = req.body;
@@ -16,8 +17,10 @@ export default async function handler(
       },
       body: order,
     });
-    res.status(200).send({ data });
+    res.status(HTTP_STATUS.OK).send({ data });
   } catch (error) {
-    res.status(500).send({ error: 'failed to fetch data' });
+    res
+      .status(HTTP_STATUS.SERVER_ERROR)
+      .send({ error: 'failed to fetch data' });
   }
 }

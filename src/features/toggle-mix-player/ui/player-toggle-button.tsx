@@ -1,7 +1,8 @@
-import { HTMLAttributes } from 'react';
+import type { CurrentMixPlayer } from '../types/toggle-player.interface';
+import type { HTMLAttributes } from 'react';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Button } from '@/shared/ui/button/button';
-import type { CurrentMixPlayer } from '../types/toggle-player.interface';
 
 interface PlayerToggleButtonProps extends HTMLAttributes<HTMLButtonElement> {
   disabled: boolean;
@@ -37,7 +38,7 @@ export const PlayerToggleButton = ({
             !disabled && !active,
         },
         { 'bg-white text-black': !disabled && playerType === currentMixPlayer },
-        { 'bg-secondary-dark hover:bg-secondary-light': !disabled && active }
+        { 'bg-secondary-dark hover:bg-secondary-light': !disabled && active },
       )}
     >
       {text}

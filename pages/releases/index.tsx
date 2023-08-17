@@ -1,10 +1,10 @@
-import { ApolloError } from '@apollo/client';
+import type { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { ApolloError } from '@apollo/client';
 import type { GetStaticProps, GetStaticPropsResult, NextPage } from 'next';
-import { defaultReleases } from '@/defaults/defaults';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { defaultReleases, ReleaseApi } from '@/entities/release/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type { ReleaseEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     const {
       data: { releases },
     } = await client.query({
-      query: ArchiveApi.ReleasesDocument,
+      query: ReleaseApi.ReleasesDocument,
       variables: { limit: 12 },
     });
     return {

@@ -1,4 +1,4 @@
-import { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
+import type { SvgIconConstituentValues } from '@/shared/lib/types/svg-icon-constituent-values.interface';
 
 export const YoutubeIcon = ({ className }: SvgIconConstituentValues) => {
   return (

@@ -1,14 +1,17 @@
+import { useEffect } from 'react';
 import { useUnit } from 'effector-react';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import LocalLogo from '~/icons/LocalLogo.svg';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { useScroll } from '@/shared/lib/hooks/use-scroll.hook';
 import { Button } from '@/shared/ui/button/button';
 import { clickArchiveNavType } from '@/widgets/navigation/archive/model/archive-nav.model';
 import { HeaderStreamPlayerWithMemo } from '@/widgets/players/stream/ui/header-stream-player';
+import LocalLogo from '~/icons/LocalLogo.svg';
+
 import { headerNav } from '../lib/header-nav';
 import { $isOpenedMobileMenu, openMobileMenu } from '../model/header.model';
 import { MainHeaderDesktop } from './main-header-desktop';
@@ -40,7 +43,7 @@ export const MainHeader = () => {
     { 'top-0': visible },
     'sticky isolate z-20   flex w-full items-center border-b-2 border-black',
     'bg-primary text-[0.95rem] font-semibold leading-none transition-all  duration-300  sm:text-[1.05rem]',
-    'lg:h-[var(--header-height)] lg:bg-opacity-75 lg:px-2 lg:pt-0  lg:backdrop-blur-[177px] lg:backdrop-saturate-150 xl:px-3.5 2xl:text-[1.15rem]'
+    'lg:h-[var(--header-height)] lg:bg-opacity-75 lg:px-2 lg:pt-0  lg:backdrop-blur-[177px] lg:backdrop-saturate-150 xl:px-3.5 2xl:text-[1.15rem]',
   );
 
   return (

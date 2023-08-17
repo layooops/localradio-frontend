@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Heart from '~/icons/heart.png';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { LocalSocialsList } from '@/widgets/layouts/main/local-socials-List/ui/local-socials-list';
+import Heart from '~/icons/heart.png';
+
 import { headerNav } from '../lib/header-nav';
 import { HeaderMobileLink } from './header-mobile-link';
 
@@ -18,7 +20,7 @@ export const MainHeaderMobile = ({ isOpenedMenu }: MainHeaderMobileProps) => {
         {
           'top-[calc(var(--header-height)+30px+4px)] xxs:top-[calc(var(--header-height)+60px+4px)]':
             isOpenedMenu,
-        }
+        },
       )}
     >
       <div className='flex min-h-[100vh] flex-col items-center overflow-scroll bg-primary scrollbar-hide'>

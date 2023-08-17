@@ -1,5 +1,5 @@
-import { NextPage } from 'next';
-import { ComponentType, ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
+import type { ComponentType, ReactElement, ReactNode } from 'react';
 
 export type Page = NextPage<P> & {
   // You can disable whichever you don't need

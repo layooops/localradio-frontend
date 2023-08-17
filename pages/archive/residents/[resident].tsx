@@ -1,19 +1,21 @@
 import type {
+  GuestEntityResponseCollection,
+  MixEntityResponseCollection,
+} from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { Description } from '@/shared/lib/types/description.interface';
+import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { MixApi } from '@/entities/mix/api';
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { PageExtraContent } from '@/pages/ui/page-extra-content-wrapper';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type {
-  GuestEntityResponseCollection,
-  MixEntityResponseCollection,
-} from '@/shared/api/graphql/__generated__/schema.graphql';
-import { getDescription } from '@/shared/lib/get-gescription';
-import { getMarkdownToHtml } from '@/shared/lib/markdown-to-html';
-import type { Description } from '@/shared/lib/types/description.interface';
+import { getDescription } from '@/shared/lib/helpers/get-gescription';
+import { getMarkdownToHtml } from '@/shared/lib/helpers/markdown-to-html';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -65,13 +67,13 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
 
   const {
     data: { guests },
   } = await client.query({
-    query: ArchiveApi.GuestsDocument,
+    query: MixArchiveInnerApi.GuestsDocument,
     variables: { limit: 12, filters: { slug: { eq: resident } } },
   });
 
@@ -81,7 +83,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
   }
 
-  const { mixes } = await ArchiveApi.fetchMixes({
+  const { mixes } = await MixApi.fetchMixes({
     filters: { guests: { slug: { eq: resident } } },
   });
 

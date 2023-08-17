@@ -1,8 +1,7 @@
-import { GenreRelationResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
-import { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
-import { SizeVariant } from '@/shared/lib/types/size-variant.interface';
-import { PropsWithChildren, ReactNode } from 'react';
-import { Maybe } from 'yup';
+import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
+import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { PropsWithChildren, ReactNode } from 'react';
+import type { Maybe } from 'yup';
 
 export interface CardBottomInfoProps extends PropsWithChildren {
   sizeVariant?: SizeVariant;

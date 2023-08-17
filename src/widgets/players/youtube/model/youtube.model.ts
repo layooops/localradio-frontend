@@ -1,6 +1,9 @@
-import { sample } from 'effector';
 import type { Maybe } from 'yup';
+
+import { sample } from 'effector';
+
 import { $currentGlobalPlayer } from '@/features/choose-global-player/model/current-global-player.model';
+
 import { player } from '../../player-domain';
 
 export const youtube = player.domain('youtube');

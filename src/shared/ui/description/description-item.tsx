@@ -1,4 +1,5 @@
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+
 import { TextWrapper } from '../text-wrapper/text-wrapper';
 
 interface DescriptionItemProps {

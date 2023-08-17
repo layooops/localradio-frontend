@@ -1,16 +1,16 @@
-import { FC } from 'react';
-import { CardBaseProps } from '@/entities/archive/lib/card-list.interface';
-import { ReleaseEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { ReleaseEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { CardBaseNoIdProps } from '@/shared/ui/card/card.interface';
 
-import { Button } from '@/shared/ui/button/button';
-import { Card } from '@/shared/ui/card';
 import { formatLinksWithAdditionalInfo } from '@/shared/lib/helpers/format-links-with-additional-info';
 import { setSeoAltText } from '@/shared/lib/helpers/set-seo-alt-text';
-import { releaseLinksAdditionalData } from './release-links-additional-data';
+import { Button } from '@/shared/ui/button/button';
+import { Card } from '@/shared/ui/card';
 
-type ReleaseCardProps = CardBaseProps & ReleaseEntity;
+import { releaseLinksAdditionalData } from '../../lib/release-links-additional-data';
 
-export const ReleaseCard: FC<ReleaseCardProps> = (props) => {
+type ReleaseCardProps = CardBaseNoIdProps & ReleaseEntity;
+
+export const ReleaseCard = (props: ReleaseCardProps) => {
   const { attributes, className } = props;
   const releaseTitle = attributes?.artistName + ' - ' + attributes?.releaseName;
   const altText = setSeoAltText({

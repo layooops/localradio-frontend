@@ -1,4 +1,5 @@
 import { ErrorBoundary } from 'react-error-boundary';
+
 import { ErrorFallback } from '@/widgets/error-fallback/error-fallback';
 
 export const ErrorBoundaryProvider = ({
@@ -8,7 +9,7 @@ export const ErrorBoundaryProvider = ({
     error: Error,
     info: {
       componentStack: string;
-    }
+    },
   ) => {
     console.error('Logging', error, info);
   };

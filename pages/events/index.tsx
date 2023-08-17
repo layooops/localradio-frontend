@@ -1,12 +1,13 @@
+import type { EventEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { EventApi } from '@/entities/event/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import { EventEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -36,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
     const {
       data: { events },
     } = await client.query({
-      query: ArchiveApi.EventsDocument,
+      query: EventApi.EventsDocument,
       variables: { limit: 12 },
     });
 

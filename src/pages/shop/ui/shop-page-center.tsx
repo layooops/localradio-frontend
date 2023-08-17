@@ -1,14 +1,14 @@
-import { useUnit } from 'effector-react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import type { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { Maybe } from 'yup';
-import {
-  $selectedSize,
-  selectSizeEv,
-  submitShopEv,
-} from '@/entities/store/items/model/shop.model';
-import { ShopSubmitElement } from '@/entities/store/items/ui/big-shop-button';
-import { ShopItemEntity } from '@/shared/api/graphql/__generated__/schema.graphql';
+
+import { useEffect, useState } from 'react';
+import { useUnit } from 'effector-react';
+
+import Link from 'next/link';
+
+import { $selectedSize, selectSizeEv } from '@/entities/shop/model/shop.model';
+import { ShopSubmitElement } from '@/entities/shop/ui/shop-submit-element';
+import { submitShopEv } from '@/features/cart/add-to-cart/model/add-to-cart.model';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { GenreItem } from '@/shared/ui/genres/genre-button/genre-item';
 import { NextImage } from '@/shared/ui/next-image/next-image';
@@ -71,7 +71,7 @@ export const ShopPageCenter = ({ item }: ShopPageCenterProps) => {
                 {
                   'border-white backdrop-blur-[2px] lg:-m-0.5':
                     attributes?.url === currentImage,
-                }
+                },
               )}
             />
           </button>

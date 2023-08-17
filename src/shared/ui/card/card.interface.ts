@@ -1,9 +1,9 @@
-import type { LinkProps } from 'next/link';
-import { ReactNode } from 'react';
-import type { Maybe } from 'yup';
 import type { GenreRelationResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { EntityVariant } from '@/shared/lib/types/entity-variants.interface';
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { LinkProps } from 'next/link';
+import type { HTMLAttributes, ReactNode } from 'react';
+import type { Maybe } from 'yup';
 
 interface CardBaseProps {
   date: string | any;
@@ -28,3 +28,5 @@ export type CardProps = JSX.IntrinsicElements['a'] &
   CardBaseProps & {
     href?: string;
   } & LinkProps;
+
+export type CardBaseNoIdProps = Omit<HTMLAttributes<HTMLDivElement>, 'id'>;

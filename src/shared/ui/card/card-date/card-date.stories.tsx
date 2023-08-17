@@ -1,6 +1,7 @@
+import type { CardDateProps } from './card-date.interface';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { CardDateWithMemo } from './card-date';
-import { CardDateProps } from './card-date.interface';
 
 const defaultArgs: CardDateProps = {
   date: new Date().toISOString(),

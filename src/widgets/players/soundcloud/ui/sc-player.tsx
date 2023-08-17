@@ -1,12 +1,14 @@
-import { useUnit } from 'effector-react';
 import { useState } from 'react';
 import SoundCloudPlayer from 'react-player/soundcloud';
+import { useUnit } from 'effector-react';
+
 import {
   $currentGlobalPlayer,
   setCurrentGlobalPlayerEv,
 } from '@/features/choose-global-player/model/current-global-player.model';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
+
 import { BottomPlayerNav } from '../../bottom-player-nav/ui/bottom-player-nav';
 import { $randomMixes } from '../model/sc-random-mixes.model';
 import {
@@ -45,19 +47,21 @@ export const SCPlayer = () => {
       isClickedPlaySc: $isClickedPlaySc,
     });
 
+  const [randomMix] = randomMixes;
+
   const handleOnEndedPlayer = () => {
     let currentLink = '';
     if (
-      randomMixes[0]?.attributes &&
-      randomMixes[0]?.attributes.linksToMixes?.soundcloudLink
+      randomMix.attributes &&
+      randomMix.attributes.linksToMixes?.soundcloudLink
     )
-      currentLink = randomMixes[0]?.attributes?.linksToMixes?.soundcloudLink;
+      currentLink = randomMix.attributes.linksToMixes.soundcloudLink;
     setCurrentScLink(currentLink);
 
     setLinkToMix(
-      randomMixes && randomMixes[0]?.attributes?.slug
-        ? randomMixes[0]?.attributes.slug
-        : ''
+      randomMixes && randomMix.attributes?.slug
+        ? randomMix.attributes.slug
+        : '',
     );
   };
 
@@ -66,7 +70,7 @@ export const SCPlayer = () => {
       className={clsxm(
         'relative flex w-full flex-col items-center justify-center ',
         { flex: currentGlobalPlayer === 'soundcloud' },
-        { 'flex md:hidden': currentGlobalPlayer !== 'soundcloud' }
+        { 'flex md:hidden': currentGlobalPlayer !== 'soundcloud' },
       )}
     >
       <BottomPlayerNav variant='soundcloud' loaded={loaded} />
@@ -109,7 +113,7 @@ export const SCPlayer = () => {
               width='100%'
               height='100%'
               playing={Boolean(
-                isClickedPlaySc && currentGlobalPlayer === 'soundcloud'
+                isClickedPlaySc && currentGlobalPlayer === 'soundcloud',
               )}
             />
           )}

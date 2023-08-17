@@ -1,10 +1,13 @@
-import { useUncontrolled } from '@mantine/hooks';
+import type { InputProps } from '../types/input.interface';
 import type { FocusEvent } from 'react';
+
 import { useCallback, useState } from 'react';
 import { useIMask } from 'react-imask';
+import { useUncontrolled } from '@mantine/hooks';
+
 import { createView } from '@/shared/lib/effector/view';
+
 import { InputErrorWrapper } from '../input-error-wrapper';
-import { InputProps } from '../types/input.interface';
 
 const TextInput = createView<InputProps>()
   .displayName('TextInput')
@@ -35,7 +38,7 @@ const TextInput = createView<InputProps>()
         onAccept: (value, masked) => {
           mask && handleChange(masked.value);
         },
-      }
+      },
     );
 
     const handleFocus = useCallback(
@@ -45,7 +48,7 @@ const TextInput = createView<InputProps>()
         }
         setFocused(true);
       },
-      [onFocus]
+      [onFocus],
     );
 
     const handleBlur = useCallback(
@@ -55,7 +58,7 @@ const TextInput = createView<InputProps>()
         }
         setFocused(false);
       },
-      [onBlur]
+      [onBlur],
     );
 
     return {
@@ -97,7 +100,7 @@ const TextInput = createView<InputProps>()
           error={error}
         />
       );
-    }
+    },
   ).Memo;
 
 export { TextInput };

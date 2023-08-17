@@ -1,15 +1,17 @@
-import Link from 'next/link';
-import { FC, memo } from 'react';
-import type { Maybe } from 'yup';
 import type { SizeVariant } from '@/shared/lib/types/size-variant.interface';
+import type { Maybe } from 'yup';
 
-interface Props {
+import { memo } from 'react';
+
+import Link from 'next/link';
+
+interface CardHeadingProps {
   href: string;
   text?: string | Maybe<string>[];
   sizeVariant?: SizeVariant;
 }
 
-export const CardHeading: FC<Props> = ({ href, text, sizeVariant }) => {
+export const CardHeading = ({ href, text, sizeVariant }: CardHeadingProps) => {
   if (Array.isArray(text)) {
     return (
       <Link

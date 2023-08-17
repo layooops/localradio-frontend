@@ -1,12 +1,15 @@
-import { FC, memo } from 'react';
+import type { CardProps } from '../card.interface';
+
+import { memo } from 'react';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
-import { CardProps } from '../card.interface';
+
+import { GenreListWithMemo } from '../../genres/genre-list/genre-list';
 import { CardBottomInfo } from '../card-bottom-info/card-bottom-info';
 import { CardImageWithMemo } from '../card-image/card-image';
 import { CardWrapperWithMemo } from '../card-wrapper/card-wrapper';
-import { GenreListWithMemo } from '../../genres/genre-list/genre-list';
 
-export const Card: FC<CardProps> = (props) => {
+export const Card = (props: CardProps) => {
   const {
     bottomInfo,
     variant,
@@ -24,7 +27,7 @@ export const Card: FC<CardProps> = (props) => {
       'border-b-2 border-black p-1.5 last-of-type:border-none  md:p-2 xl:p-2.5':
         sizeVariant === 'small',
     },
-    className
+    className,
   );
   const cardSubWrapperClasses = clsxm(
     {
@@ -34,7 +37,7 @@ export const Card: FC<CardProps> = (props) => {
     {
       'grid grid-cols-[0.7fr,1fr]  gap-1.5 lg:gap-2 2xl:gap-3':
         sizeVariant === 'small',
-    }
+    },
   );
 
   return (
@@ -67,7 +70,7 @@ export const Card: FC<CardProps> = (props) => {
             },
             {
               'h-full': variant !== 'mix',
-            }
+            },
           )}
         >
           {sizeVariant === 'standard' && mixButtons}
@@ -76,14 +79,16 @@ export const Card: FC<CardProps> = (props) => {
             sizeVariant={sizeVariant}
             variant={variant}
             cardDate={cardDate}
-            genresNode={variant === 'mix' && (
-              <GenreListWithMemo
-                variant='solid'
-                colorVariant='primary'
-                sizeVariant='small'
-                genres={rest?.genres?.data}
-              />
-            )}
+            genresNode={
+              variant === 'mix' && (
+                <GenreListWithMemo
+                  variant='solid'
+                  colorVariant='primary'
+                  sizeVariant='small'
+                  genres={rest.genres?.data}
+                />
+              )
+            }
             {...rest}
           >
             {bottomInfo}

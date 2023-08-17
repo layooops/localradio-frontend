@@ -1,12 +1,13 @@
+import type { GuestEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { ArchiveApi } from '@/entities/archive/api';
+
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type { GuestEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -35,14 +36,14 @@ export const getServerSideProps: GetServerSideProps = async ({
 }): Promise<GetServerSidePropsResult<PageProps>> => {
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
 
   try {
     const {
       data: { guests },
     } = await client.query({
-      query: ArchiveApi.GuestsDocument,
+      query: MixArchiveInnerApi.GuestsDocument,
       variables: { limit: 12 },
     });
 

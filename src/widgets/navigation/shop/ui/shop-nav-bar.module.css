@@ -1,13 +1,12 @@
-.navList {
+.nav-list {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-
   height: var(--nav-height);
   border-bottom: 2px solid black;
 }
 
-.navList > li {
+.nav-list > li {
   display: flex;
   flex: 1;
   padding: 0 0.5rem;
@@ -21,12 +20,12 @@
   border-left: 0;
 }
 
-.navList li:last-of-type {
+.nav-list li:last-of-type {
   border-right: none;
 }
 
-@media screen and (min-width: 768px) {
-  .navList > li {
+@media screen and (width >= 768px) {
+  .nav-list > li {
     flex: 1;
   }
 }

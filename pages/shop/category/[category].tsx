@@ -1,15 +1,13 @@
-import type { GetStaticProps, NextPage } from 'next';
-import {
-  ShopCategoriesDocument,
-  ShopItemsDocument,
-} from '@/entities/store/items/api/shop-items.graphql.interface';
-import { ArchivePage } from '@/pages/archive/ui/archive-page';
-import { client } from '@/shared/api/apollo/apollo-client';
-import { SlugParams } from '@/shared/api/apollo/slug-params';
-import {
+import type { SlugParams } from '@/shared/api/apollo/slug-params';
+import type {
   ShopCategoryEntity,
   ShopItemEntityResponseCollection,
 } from '@/shared/api/graphql/__generated__/schema.graphql';
+import type { GetStaticProps, NextPage } from 'next';
+
+import { ShopApi } from '@/entities/shop/api';
+import { ArchivePage } from '@/pages/archive/ui/archive-page';
+import { client } from '@/shared/api/apollo/apollo-client';
 import { capitalize } from '@/shared/lib/helpers/capitalize';
 import { Seo } from '@/shared/ui/seo/seo';
 
@@ -48,17 +46,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const {
     data: { shopCategories },
   } = await client.query({
-    query: ShopCategoriesDocument,
+    query: ShopApi.ShopCategoriesDocument,
     variables: { filters: { parent: { slug: { eq: category as string } } } },
   });
 
   const {
     data: { shopItems },
   } = await client.query({
-    query: ShopItemsDocument,
+    query: ShopApi.ShopItemsDocument,
     variables: {
       filters:
-        category && shopCategories?.data && shopCategories.data.length > 0
+        category && Array.isArray(shopCategories?.data)
           ? { shop_category: { parent: { slug: { eq: category as string } } } }
           : { slug: { eq: category as string } },
     },
@@ -77,7 +75,7 @@ export async function getStaticPaths() {
   const {
     data: { shopCategories },
   } = await client.query({
-    query: ShopCategoriesDocument,
+    query: ShopApi.ShopCategoriesDocument,
   });
 
   const paths = shopCategories?.data.map(({ attributes }) => ({

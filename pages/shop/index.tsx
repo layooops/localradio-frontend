@@ -1,8 +1,9 @@
+import type { ShopItemEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import type { GetServerSideProps, NextPage } from 'next';
-import { ShopItemsDocument } from '@/entities/store/items/api/shop-items.graphql.interface';
+
+import { ShopApi } from '@/entities/shop/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import { ShopItemEntityResponseCollection } from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -30,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const {
       data: { shopItems },
     } = await client.query({
-      query: ShopItemsDocument,
+      query: ShopApi.ShopItemsDocument,
       variables: { limit: 12 },
     });
 

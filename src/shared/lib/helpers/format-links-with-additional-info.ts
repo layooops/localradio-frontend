@@ -1,8 +1,7 @@
-import { LinkProps } from 'next/link';
+import type { LinkProps } from 'next/link';
+import type { Maybe } from 'yup';
 
-import { Maybe } from 'yup';
-
-type AdditionalData =
+type SocialMediaType =
   | 'appleMusic'
   | 'bandcamp'
   | 'soundcloud'
@@ -16,18 +15,18 @@ type AdditionalData =
   | 'TGLink'
   | 'VKLink';
 
-type Links = Record<AdditionalData, Maybe<string> | undefined>;
+type Links = Record<SocialMediaType, Maybe<string> | undefined>;
 
 interface LinksWithColors {
   color?: string | undefined;
   icon?: JSX.Element | undefined;
   title?: string | undefined;
-  type: AdditionalData;
+  type: SocialMediaType;
   href: LinkProps['href'];
 }
 
 interface FormatLinksWithColorsProps {
-  links?: Maybe<Links>;
+  links?: Partial<Maybe<Links>>;
   additionalData: any;
 }
 
@@ -37,12 +36,12 @@ export const formatLinksWithAdditionalInfo = ({
 }: FormatLinksWithColorsProps) => {
   const linksArray =
     links &&
-    Object.entries(links).filter((link) =>
-      link[1]?.startsWith('https' || 'http')
+    Object.entries(links).filter(
+      (link) => link[1]?.startsWith('https' || 'http'),
     );
 
   const linksWithColors = linksArray?.map((link) => {
-    const type = link[0] as AdditionalData;
+    const type = link[0] as SocialMediaType;
     return {
       type,
       href: link[1],

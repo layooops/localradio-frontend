@@ -1,16 +1,18 @@
 import type {
+  GenreEntity,
+  MixEntityResponseCollection,
+} from '@/shared/api/graphql/__generated__/schema.graphql';
+import type {
   GetServerSideProps,
   GetServerSidePropsResult,
   NextPage,
 } from 'next';
-import { ParsedUrlQuery } from 'querystring';
-import { ArchiveApi } from '@/entities/archive/api';
+import type { ParsedUrlQuery } from 'querystring';
+
+import { MixApi } from '@/entities/mix/api';
+import { MixArchiveInnerApi } from '@/entities/mix-archive-inner/api';
 import { ArchivePage } from '@/pages/archive/ui/archive-page';
 import { client } from '@/shared/api/apollo/apollo-client';
-import type {
-  GenreEntity,
-  MixEntityResponseCollection,
-} from '@/shared/api/graphql/__generated__/schema.graphql';
 import { Seo } from '@/shared/ui/seo/seo';
 
 interface PageProps {
@@ -50,13 +52,13 @@ export const getServerSideProps: GetServerSideProps = async ({
   const { genre: slug } = params as SlugParams;
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
+    'public, s-maxage=10, stale-while-revalidate=59',
   );
 
   const {
     data: { genreOne: genre },
   } = await client.query({
-    query: ArchiveApi.GenreDocument,
+    query: MixArchiveInnerApi.GenreDocument,
     variables: { slug },
   });
 
@@ -66,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
   }
 
-  const { mixes } = await ArchiveApi.fetchMixes({
+  const { mixes } = await MixApi.fetchMixes({
     filters: { genres: { slug: { eq: slug } } },
   });
 

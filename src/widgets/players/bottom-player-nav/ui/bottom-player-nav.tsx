@@ -1,11 +1,14 @@
-import { useList, useUnit } from 'effector-react';
-import Link from 'next/link';
 import { useState } from 'react';
-import { MixCardWithMemo } from '@/entities/archive/ui/cards/mix-card/mix-card';
+import { useList, useUnit } from 'effector-react';
+
+import Link from 'next/link';
+
 import { setCurrentGlobalPlayerEv } from '@/features/choose-global-player/model/current-global-player.model';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 import { Icon } from '@/shared/ui/icons';
 import { ListIcon } from '@/shared/ui/icons/icons/list-icon';
+import { MixCardWithMemo } from '@/widgets/mix-card/ui/mix-card';
+
 import { $randomMixes } from '../../soundcloud/model/sc-random-mixes.model';
 import {
   $isClickedPlaySc,
@@ -55,7 +58,7 @@ export const BottomPlayerNav = ({ loaded, variant }: BottomPlayerNavProps) => {
             className={clsxm(
               'border-t-2 border-black bg-primary !transition-transform !duration-200 !ease-in-out',
               ' absolute left-0 top-0 flex w-full  translate-y-0 flex-col  rounded-tl-lg  !border-b-0 !border-l-2 !px-0',
-              { '-translate-y-full': openedMoreMixes }
+              { '-translate-y-full': openedMoreMixes },
             )}
           >
             {mixes}
@@ -67,13 +70,13 @@ export const BottomPlayerNav = ({ loaded, variant }: BottomPlayerNavProps) => {
             '[&>*]:border-t-2 [&>*]:border-black [&>*]:bg-primary  [&>*]:transition-colors    md:hover:[&>*]:fill-secondary-dark',
             'md:hover:[&>*]:stroke-secondary-dark md:hover:[&>*]:text-secondary-dark',
 
-            { hidden: !loaded }
+            { hidden: !loaded },
           )}
         >
           <div
             className={clsxm(
               'flex h-full items-center justify-center border-l-2 border-r-2  md:pt-0',
-              { 'rounded-tl-lg': !openedMoreMixes }
+              { 'rounded-tl-lg': !openedMoreMixes },
             )}
           >
             <Link
@@ -100,13 +103,13 @@ export const BottomPlayerNav = ({ loaded, variant }: BottomPlayerNavProps) => {
                 },
                 {
                   'bg-gray-color opacity-60 blur-[1px]': !isOpenedScWidget,
-                }
+                },
               )}
             />
             <div
               className={clsxm(
                 'absolute inset-0 flex items-center justify-center opacity-100 transition-all   duration-100',
-                { 'opacity-0': isOpenedScWidget }
+                { 'opacity-0': isOpenedScWidget },
               )}
             >
               <div className='w-4 rotate-180 lg:w-5'>
@@ -125,7 +128,9 @@ export const BottomPlayerNav = ({ loaded, variant }: BottomPlayerNavProps) => {
               <div
                 className={clsxm(
                   'h-4 -translate-x-[1px] transition-all duration-150 sm:h-[1.2rem] lg:-translate-x-0.5 xl:h-5',
-                  { 'stroke-gray-color opacity-60 blur-[1px]': openedMoreMixes }
+                  {
+                    'stroke-gray-color opacity-60 blur-[1px]': openedMoreMixes,
+                  },
                 )}
               >
                 <ListIcon />
@@ -134,7 +139,7 @@ export const BottomPlayerNav = ({ loaded, variant }: BottomPlayerNavProps) => {
               <div
                 className={clsxm(
                   'absolute inset-0 flex items-center justify-center opacity-0 transition-all  duration-100',
-                  { 'opacity-100 ': openedMoreMixes }
+                  { 'opacity-100 ': openedMoreMixes },
                 )}
               >
                 <div className='w-4 lg:w-5'>

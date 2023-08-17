@@ -1,5 +1,7 @@
-import Link from 'next/link';
 import { memo } from 'react';
+
+import Link from 'next/link';
+
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 
 interface ArchiveNavItemProps {

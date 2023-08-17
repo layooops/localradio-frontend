@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode, RefObject } from 'react';
+import type { InputHTMLAttributes, ReactNode, RefObject } from 'react';
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: ReactNode;
