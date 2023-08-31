@@ -51,9 +51,10 @@ module.exports = configure({
         },
       ],
       'no-magic-numbers': [
-        'error',
+        'warn',
         { ignoreArrayIndexes: true, ignoreDefaultValues: true, "ignore": [1] },
       ],
+      'jsx-a11y/no-static-element-interactions': 'warn',
       'no-useless-catch': 'error',
       'unused-imports/no-unused-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
