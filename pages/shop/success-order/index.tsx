@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
 import { useUnit } from 'effector-react';
+import { useEffect } from 'react';
 
 import Link from 'next/link';
 
 import { setSuccessOrder } from '@/features/checkout/model/checkout.model';
+import { ARROW_RIGHT_SYMBOL } from '@/shared/lib/constants/contants';
 import { ArchiveSecondHeader } from '@/shared/ui/headings/archive-second-header';
 
 const Page = () => {
@@ -22,7 +23,7 @@ const Page = () => {
           cost).
         </p>
         <Link className='font-medium' href='/'>
-          Explore more →
+          Explore more {ARROW_RIGHT_SYMBOL}
         </Link>
       </div>
     </div>

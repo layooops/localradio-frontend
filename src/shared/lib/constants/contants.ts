@@ -22,3 +22,5 @@ export const ARRAY_INDEX = {
 export const DEFAULT_QUANTITY = 0;
 
 export const DEFAULT_DELAY_MS = 500;
+
+export const ARROW_RIGHT_SYMBOL = '→'
