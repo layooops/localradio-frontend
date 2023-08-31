@@ -19,7 +19,7 @@ export const calculateQuantity = ({
     currentProduct.quantity &&
     newProduct.quantity &&
     currentProduct.quantity + newProduct.quantity >=
-    PRODUCT_QUANTITY_RESTRICTION.max
+      PRODUCT_QUANTITY_RESTRICTION.max
   ) {
     return PRODUCT_QUANTITY_RESTRICTION.max;
   }

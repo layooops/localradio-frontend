@@ -8,6 +8,7 @@ import { GenreListWithMemo } from '../../genres/genre-list/genre-list';
 import { CardBottomInfo } from '../card-bottom-info/card-bottom-info';
 import { CardImageWithMemo } from '../card-image/card-image';
 import { CardWrapperWithMemo } from '../card-wrapper/card-wrapper';
+import { useCardClasses } from './use-card-classes';
 
 export const Card = (props: CardProps) => {
   const {
@@ -21,24 +22,11 @@ export const Card = (props: CardProps) => {
     cardDate,
     ...rest
   } = props;
-  const cardWrapperClasses = clsxm(
-    { 'group  h-full overflow-hidden': sizeVariant === 'standard' },
-    {
-      'border-b-2 border-black p-1.5 last-of-type:border-none  md:p-2 xl:p-2.5':
-        sizeVariant === 'small',
-    },
+
+  const { cardSubWrapperClasses, cardWrapperClasses } = useCardClasses({
+    sizeVariant,
     className,
-  );
-  const cardSubWrapperClasses = clsxm(
-    {
-      'group relative flex  flex-1 flex-col overflow-hidden':
-        sizeVariant === 'standard',
-    },
-    {
-      'grid grid-cols-[0.7fr,1fr]  gap-1.5 lg:gap-2 2xl:gap-3':
-        sizeVariant === 'small',
-    },
-  );
+  });
 
   return (
     <CardWrapperWithMemo

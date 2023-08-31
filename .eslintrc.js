@@ -50,7 +50,10 @@ module.exports = configure({
           ],
         },
       ],
-      'no-magic-numbers': ['error', { "ignoreArrayIndexes": true, "ignoreDefaultValues": true  }],
+      'no-magic-numbers': [
+        'error',
+        { ignoreArrayIndexes: true, ignoreDefaultValues: true, "ignore": [1] },
+      ],
       'no-useless-catch': 'error',
       'unused-imports/no-unused-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
@@ -58,7 +61,7 @@ module.exports = configure({
       '@typescript-eslint/no-unused-expressions': 'off',
       'react/no-unknown-property': 'warn',
       'jsx-a11y/media-has-caption': 'warn',
-      'prefer-destructuring': 'error'
+      'prefer-destructuring': 'error',
     },
   },
 });

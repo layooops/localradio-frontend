@@ -3,8 +3,8 @@ import type { Maybe } from 'yup';
 
 import { sample } from 'effector';
 
-import { shopItems } from '@/entities/shop/model/shop-items.domain';
 import { $products } from '@/entities/shop/model/shop.model';
+import { shopItems } from '@/entities/shop/model/shop-items.domain';
 import { PRODUCT_QUANTITY_RESTRICTION } from '@/shared/lib/constants/contants';
 
 import { calculateQuantity } from '../lib/helpers/calculate-quantity';
@@ -74,9 +74,9 @@ sample({
         product.id === id &&
         product.selectedSize === selectedSize
         ? {
-          ...product,
-          quantity: product.quantity && product.quantity + MIN_QUANTITY,
-        }
+            ...product,
+            quantity: product.quantity && product.quantity + MIN_QUANTITY,
+          }
         : product;
     });
   },
@@ -91,13 +91,13 @@ sample({
     return products[index].quantity === MIN_QUANTITY
       ? dropItem(products, index)
       : products.map((product) =>
-        product.id === id && product.selectedSize === selectedSize
-          ? {
-            ...product,
-            quantity: product.quantity && product.quantity - MIN_QUANTITY,
-          }
-          : product,
-      );
+          product.id === id && product.selectedSize === selectedSize
+            ? {
+                ...product,
+                quantity: product.quantity && product.quantity - MIN_QUANTITY,
+              }
+            : product,
+        );
   },
   target: $products,
 });
@@ -115,13 +115,13 @@ sample({
   fn: ({ products }, { id: index, selectedSize: newSelectedSize }) => {
     return newSelectedSize
       ? products.filter(({ id, selectedSize }) => {
-        if (selectedSize !== newSelectedSize)
-          return selectedSize !== newSelectedSize;
-        return id !== index;
-      })
+          if (selectedSize !== newSelectedSize)
+            return selectedSize !== newSelectedSize;
+          return id !== index;
+        })
       : products.filter(({ id }) => {
-        return id !== index;
-      });
+          return id !== index;
+        });
   },
   target: $products,
 });

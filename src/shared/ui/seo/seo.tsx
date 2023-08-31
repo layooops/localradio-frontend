@@ -28,6 +28,7 @@ export function Seo(props: SeoProps) {
     ...defaultMeta,
     ...props,
   };
+
   meta.title = props.templateTitle
     ? `${props.templateTitle} | ${meta.siteName}`
     : meta.title;
@@ -77,27 +78,29 @@ interface Favicons {
   type?: string;
 }
 
+const FAVICON_FOLDER_NAME = 'favicon';
+
 const favicons: Array<Favicons> = [
   {
     rel: 'icon',
     type: 'image/png',
     sizes: '32x32',
-    href: '/favicon/favicon-32x32.png',
+    href: `/${FAVICON_FOLDER_NAME}/favicon-32x32.png`,
   },
   {
     rel: 'icon',
     type: 'image/png',
     sizes: '96x96',
-    href: '/favicon/favicon-96x96.png',
+    href: `/${FAVICON_FOLDER_NAME}/favicon-96x96.png`,
   },
   {
     rel: 'icon',
     type: 'image/png',
     sizes: '48x48',
-    href: '/favicon/favicon-48x48.png',
+    href: `/${FAVICON_FOLDER_NAME}/favicon-48x48.png`,
   },
   {
     rel: 'manifest',
-    href: '/favicon/site.webmanifest',
+    href: `/${FAVICON_FOLDER_NAME}/site.webmanifest`,
   },
 ];

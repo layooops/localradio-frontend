@@ -1,5 +1,5 @@
-import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
+import { useUnit } from 'effector-react';
 
 import Link from 'next/link';
 
