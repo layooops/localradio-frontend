@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { client } from '@/shared/api/apollo/apollo-client';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
 import { RandomMixDocument } from '@/widgets/players/soundcloud/api/random-mix.graphql.interface';
 
 export default async function handler(

@@ -27,7 +27,7 @@ export const getMixPageData = async ({ slug }: GetMixPageData) => {
     };
   }
 
-  const firstMix = mixes.data[0];
+  const [firstMix] = mixes.data;
   const firstGuest = firstMix.attributes?.guests?.data[0];
 
   const mixDate = firstMix.attributes?.date;

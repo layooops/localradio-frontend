@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { ScheduleApi } from '@/entities/schedule/api';
 import { client } from '@/shared/api/apollo/apollo-client';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
 
 export default async function handler(
   req: NextApiRequest,

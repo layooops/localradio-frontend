@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { API_DOMAIN, API_TOKEN } from '@/shared/config/environment';
+import { HTTP_STATUS } from '@/shared/lib/constants/http-statuses';
 
 export default async function handler(
   req: NextApiRequest,

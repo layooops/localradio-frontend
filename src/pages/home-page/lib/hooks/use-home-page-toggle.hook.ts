@@ -13,7 +13,7 @@ interface UseHomePageToggleHookProps
     HomePageRandMixProps,
     'homePageRandomMix' | 'refetchStream' | 'streamData'
   > {
-  refetchStream: Promise<ScopedMutator<any> | undefined>;
+  refetchStream: Promise<ScopedMutator | undefined>;
 }
 
 export const useHomePageToggleHook = ({

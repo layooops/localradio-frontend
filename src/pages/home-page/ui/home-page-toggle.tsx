@@ -18,7 +18,7 @@ import { useHomePageToggleHook } from '../lib/hooks/use-home-page-toggle.hook';
 
 export interface HomePageRandMixProps
   extends Omit<HomePageTopProps, 'schedules'> {
-  refetchStream: Promise<ScopedMutator<any> | undefined>;
+  refetchStream: Promise<ScopedMutator | undefined>;
   streamData?: StreamIsLiveQuery;
   schedulesExist: boolean;
 }
