@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 
 import { ShopCalcButton } from '@/entities/shop/ui/shop-calc-button';
 import { useSubmit } from '@/features/cart/add-to-cart/lib/hooks/use-submit.hook';
-import { productQuantityRestriction } from '@/shared/lib/constants/contants';
+import { PRODUCT_QUANTITY_RESTRICTION } from '@/shared/lib/constants/contants';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 
 export interface ShopSubmitElementProps {
@@ -52,17 +52,17 @@ export const ShopSubmitElement = ({
   const removeItem = useCallback(() => {
     !disabled &&
       setQuantity((prev) =>
-        prev !== productQuantityRestriction.min
+        prev !== PRODUCT_QUANTITY_RESTRICTION.min
           ? prev - CHANGE_AMOUNT
-          : productQuantityRestriction.min,
+          : PRODUCT_QUANTITY_RESTRICTION.min,
       );
   }, [disabled, setQuantity]);
   const addItem = useCallback(() => {
     !disabled &&
       setQuantity((prev) =>
-        prev !== productQuantityRestriction.max
+        prev !== PRODUCT_QUANTITY_RESTRICTION.max
           ? prev + CHANGE_AMOUNT
-          : productQuantityRestriction.max,
+          : PRODUCT_QUANTITY_RESTRICTION.max,
       );
   }, [disabled, setQuantity]);
 

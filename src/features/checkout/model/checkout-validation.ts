@@ -1,7 +1,7 @@
 import { string } from 'yup';
 
 import { createObjectValidator } from '@/shared/form';
-import { phoneRegex } from '@/shared/lib/constants/contants';
+import { PHONE_REGEX } from '@/shared/lib/constants/contants';
 
 const minLengthMessage = (string: string) =>
   `${string} must be at least 2 characters`;
@@ -25,7 +25,7 @@ export const checkoutValidation = () =>
       .required('Email is required')
       .nullable(),
     phone: string()
-      .matches(phoneRegex, {
+      .matches(PHONE_REGEX, {
         message: 'Введите корректный номер телефона',
       })
       .required('Phone is a required field')

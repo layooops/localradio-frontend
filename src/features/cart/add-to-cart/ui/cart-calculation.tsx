@@ -3,7 +3,7 @@ import type { Maybe } from 'yup';
 import { useUnit } from 'effector-react';
 
 import { ShopCalcButton } from '@/entities/shop/ui/shop-calc-button';
-import { productQuantityRestriction } from '@/shared/lib/constants/contants';
+import { PRODUCT_QUANTITY_RESTRICTION } from '@/shared/lib/constants/contants';
 import { clsxm } from '@/shared/lib/helpers/clsxm';
 
 import {
@@ -62,12 +62,12 @@ export const CartCalculation = ({
           </div>
 
           <ShopCalcButton
-            title={`Add item. Maximum is ${productQuantityRestriction.max} items.`}
+            title={`Add item. Maximum is ${PRODUCT_QUANTITY_RESTRICTION.max} items.`}
             aria-label='Add item'
             type='button'
-            disabled={productQuantity === productQuantityRestriction.max}
+            disabled={productQuantity === PRODUCT_QUANTITY_RESTRICTION.max}
             onClick={() => {
-              productQuantity !== productQuantityRestriction.max &&
+              productQuantity !== PRODUCT_QUANTITY_RESTRICTION.max &&
                 incrementProductQuantity({
                   id: productId,
                   selectedSize,

@@ -1,6 +1,6 @@
 import type { Product } from '@/entities/shop/lib/types/product.interface';
 
-import { productQuantityRestriction } from '@/shared/lib/constants/contants';
+import { PRODUCT_QUANTITY_RESTRICTION } from '@/shared/lib/constants/contants';
 
 export const calculateQuantity = ({
   currentProduct,
@@ -11,7 +11,7 @@ export const calculateQuantity = ({
 }) => {
   if (
     currentProduct.quantity &&
-    currentProduct.quantity >= productQuantityRestriction.max
+    currentProduct.quantity >= PRODUCT_QUANTITY_RESTRICTION.max
   ) {
     return currentProduct.quantity;
   }
@@ -19,13 +19,13 @@ export const calculateQuantity = ({
     currentProduct.quantity &&
     newProduct.quantity &&
     currentProduct.quantity + newProduct.quantity >=
-      productQuantityRestriction.max
+    PRODUCT_QUANTITY_RESTRICTION.max
   ) {
-    return productQuantityRestriction.max;
+    return PRODUCT_QUANTITY_RESTRICTION.max;
   }
   return currentProduct.selectedSize === newProduct.selectedSize &&
     currentProduct.quantity &&
-    currentProduct.quantity !== productQuantityRestriction.max &&
+    currentProduct.quantity !== PRODUCT_QUANTITY_RESTRICTION.max &&
     newProduct.quantity
     ? currentProduct.quantity + newProduct.quantity
     : currentProduct.quantity;
