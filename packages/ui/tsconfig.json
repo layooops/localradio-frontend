@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "default",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "esModuleInterop": true,
+    "noEmitOnError": false,
+    "allowUnreachableCode": false,
+    "target": "es2019",
+    "lib": ["es2019", "DOM"],
+    "types": ["node"],
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "declarationDir": "types",
+    "outDir": "dist/esm",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/ui/*": ["src/ui/*"],
+      "@/lib/*": ["src/lib/*"]
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src", "./src/**/*", "index.ts", "src/declaration.d.ts"]
+}

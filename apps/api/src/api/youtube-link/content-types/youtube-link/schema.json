@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "youtube_links",
+  "info": {
+    "singularName": "youtube-link",
+    "pluralName": "youtube-links",
+    "displayName": "youtube link",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link-component.link-component"
+    },
+    "mixes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mix.mix"
+    }
+  }
+}

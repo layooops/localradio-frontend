@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "eventInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event.event",
+      "required": true
+    },
+    "mixes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mix.mix",
+      "mappedBy": "event"
+    }
+  }
+}

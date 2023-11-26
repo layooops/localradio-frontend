@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_order_items_order_items",
+  "info": {
+    "displayName": "Order Items"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop-item.shop-item"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_schedule_artists",
+  "info": {
+    "displayName": "artist",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::guest.guest"
+    },
+    "show": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::show.show"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

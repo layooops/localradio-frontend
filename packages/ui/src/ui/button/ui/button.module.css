@@ -1,0 +1,373 @@
+.button {
+  display: flex;
+
+  cursor: pointer;
+  position: relative;
+  border: none;
+  transition: background-color 85ms ease-in-out;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  pointer-events: none;
+  user-select: none;
+}
+
+.button-align-left {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.button-align-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.button-align-right {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button-border {
+  border: 2px solid var(--color-border-main-static-subtle, #080a01);
+  border: 2px solid var(--color-border-main-static-subtle, color(display-p3 0.0314 0.0392 0.0118));
+}
+
+.full-width {
+  width: 100%;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* Spinner */
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button Size */
+
+.button-size-extra-small {
+  min-height: var(--button-size-extra-small-min-h, 22px);
+  padding: var(--button-size-extra-small-py, 4px) var(--button-size-extra-small-px, 8px);
+  gap: var(--button-size-extra-small-gap, 8px);
+
+  border-radius: var(--button-size-extra-small-border-radius, 3px);
+
+  font-size: var(--button-size-extra-small-font-size, 12px);
+  line-height: var(--button-size-extra-small-line-height, 14px);
+}
+
+.button-size-small {
+  min-height: var(--button-size-small-min-h, 28px);
+  padding: var(--button-size-small-py, 4px) var(--button-size-small-px, 12px);
+  gap: var(--button-size-small-gap, 8px);
+
+  border-radius: var(--button-size-small-border-radius, 4px);
+
+  font-size: var(--button-size-small-font-size, 14px);
+  line-height: var(--button-size-small-line-height, 16px);
+}
+
+.button-size-medium {
+  min-height: var(--button-size-medium-min-h, 34px);
+  padding: var(--button-size-medium-py, 4px) var(--button-size-medium-px, 12px);
+  gap: var(--button-size-medium-gap, 8px);
+
+  border-radius: var(--button-size-medium-border-radius, 8px);
+
+  font-size: var(--button-size-large-font-size, 18px);
+  line-height: var(--button-size-large-line-height, 20px);
+}
+
+.button-size-large {
+  min-height: var(--button-size-large-min-h, 42px);
+  padding: var(--button-size-large-py, 8px) var(--button-size-large-px, 16px);
+  gap: var(--button-size-large-gap, 12px);
+
+  border-radius: var(--button-size-large-border-radius, 8px);
+
+  font-size: var(--button-size-large-font-size, 18px);
+  line-height: var(--button-size-large-line-height, 20px);
+}
+
+/* Button Size Only Icon */
+.button-size-icon-only-extra-small {
+  height: var(--button-size-extra-small-min-h, 22px);
+  width: var(--button-size-extra-small-min-h, 22px);
+  padding: 0;
+}
+
+.button-size-icon-only-small {
+  height: var(--button-size-small-min-h, 28px);
+  width: var(--button-size-small-min-h, 28px);
+  padding: 0;
+}
+
+.button-size-icon-only-medium {
+  height: var(--button-size-medium-min-h, 34px);
+  width: var(--button-size-medium-min-h, 34px);
+  padding: 0;
+}
+
+.button-size-icon-only-large {
+  height: var(--button-size-large-min-h, 42px);
+  width: var(--button-size-large-min-h, 42px);
+  padding: 0;
+}
+
+/* Button Icon Size */
+
+.button-icon-size-extra-small {
+  width: var(--button-icon-size-extra-small, 14px);
+  height: var(--button-icon-size-extra-small, 14px);
+}
+
+.button-icon-size-small {
+  width: var(--button-icon-size-small, 18px);
+  height: var(--button-icon-size-small, 18px);
+}
+
+.button-icon-size-medium {
+  width: var(--button-icon-size-small, 18px);
+  height: var(--button-icon-size-small, 18px);
+}
+
+.button-icon-size-large {
+  width: var(--button-icon-size-small, 18px);
+  height: var(--button-icon-size-small, 18px);
+}
+.button-icon-size-extra-large {
+  width: var(--button-icon-size-extra-large, 18px);
+  height: var(--button-icon-size-extra-large, 18px);
+}
+
+/* Button Appearance */
+
+.button-appearance-primary {
+  color: var(--button-color-primary-text-default, #080a01);
+  color: var(--button-color-primary-text-default, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-static-default, rgba(231, 240, 206, 0));
+  background: var(
+    --button-color-primary-bg-static-default,
+    color(display-p3 0.9176 0.9412 0.8314 / 0)
+  );
+}
+
+.button-appearance-primary:hover {
+  color: var(--button-color-primary-text-hovered, #080a01);
+  color: var(--button-color-primary-text-hovered, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-hovered-default, #e7f0ce);
+  background: var(
+    --button-color-primary-bg-hovered-default,
+    color(display-p3 0.9176 0.9412 0.8314)
+  );
+}
+
+.button-appearance-primary:active {
+  color: var(--button-color-primary-text-pressed, #080a01);
+  color: var(--button-color-primary-text-pressed, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-pressed-default, #d6e1b7);
+  background: var(--button-color-primary-bg-pressed-default, color(display-p3 0.8549 0.8824 0.749));
+}
+
+.button-appearance-primary-selected {
+  color: var(--button-color-primary-text-selected, #080a01);
+  color: var(--button-color-primary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-selected-default, #cdd8b4);
+  background: var(
+    --button-color-primary-bg-selected-default,
+    color(display-p3 0.8196 0.8471 0.7294)
+  );
+}
+
+.button-appearance-primary-selected-overflowed {
+  color: var(--button-color-primary-text-selected, #080a01);
+  color: var(--button-color-primary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-selected-default, #cdd8b4);
+  background: var(
+    --button-color-primary-bg-selected-default,
+    color(display-p3 0.8196 0.8471 0.7294)
+  );
+}
+
+.button-appearance-primary-selected:hover,
+.button-appearance-primary-selected-overflowed:hover {
+  color: var(--button-color-primary-text-selected, #080a01);
+  color: var(--button-color-primary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-primary-bg-selected-hovered-default, #8a9863);
+  background: var(
+    --button-color-primary-bg-selected-hovered-default,
+    color(display-p3 0.5608 0.5961 0.4314)
+  );
+}
+
+.button-appearance-primary:disabled {
+  color: var(--button-color-primary-text-disabled, rgba(250, 255, 242, 0.4));
+  color: var(--button-color-primary-text-disabled, color(display-p3 0.9882 1 0.9569 / 0.4));
+
+  background: var(--button-color-primary-bg-disabled-default, rgba(0, 114, 55, 0.4));
+  background: var(
+    --button-color-primary-bg-disabled-default,
+    color(display-p3 0.1373 0.4314 0.2588 / 0.4)
+  );
+}
+
+/* Button Appearance - Secondary */
+
+.button-appearance-secondary {
+  color: var(--button-color-secondary-text-default, #fbfdef);
+  color: var(--button-color-secondary-text-default, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-static-default, #007237);
+  background: var(
+    --button-color-secondary-bg-static-default,
+    color(display-p3 0.1373 0.4314 0.2588)
+  );
+}
+
+.button-appearance-secondary:hover {
+  color: var(--button-color-secondary-text-hovered, #fbfdef);
+  color: var(--button-color-secondary-text-hovered, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-hovered-default, #006326);
+
+  background: var(--button-color-secondary-bg-hovered-default, color(display-p3 0 0.3725 0.1961));
+}
+
+.button-appearance-secondary:active {
+  color: var(--button-color-secondary-text-pressed, #fbfdef);
+  color: var(--button-color-secondary-text-pressed, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-pressed-default, #004b1a);
+  background: var(--button-color-secondary-bg-pressed-default, color(display-p3 0 0.2824 0.1412));
+}
+
+.button-appearance-secondary-selected {
+  color: var(--button-color-secondary-text-selected, #fbfdef);
+  color: var(--button-color-secondary-text-selected, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-selected-default, #003410);
+  background: var(--button-color-secondary-bg-selected-default, color(display-p3 0 0.1961 0.0902));
+}
+
+.button-appearance-secondary-selected-overflowed {
+  color: var(--button-color-secondary-text-selected, #fbfdef);
+  color: var(--button-color-secondary-text-selected, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-selected-default, #003410);
+  background: var(--button-color-secondary-bg-selected-default, color(display-p3 0 0.1961 0.0902));
+}
+
+.button-appearance-secondary-selected:hover,
+.button-appearance-secondary-selected-overflowed:hover {
+  color: var(--button-color-secondary-text-selected, #fbfdef);
+  color: var(--button-color-secondary-text-selected, color(display-p3 0.9843 0.9922 0.9451));
+
+  background: var(--button-color-secondary-bg-selected-hovered-default, #002107);
+  background: var(
+    --button-color-secondary-bg-selected-hovered-default,
+    color(display-p3 0 0.1216 0.0471)
+  );
+}
+
+.button-appearance-secondary:disabled {
+  color: var(--button-color-secondary-text-disabled, rgba(250, 255, 242, 0.4));
+  color: var(--button-color-secondary-text-disabled, color(display-p3 0.9882 1 0.9569 / 0.4));
+
+  background: var(--button-color-secondary-bg-disabled-default, rgba(0, 114, 55, 0.4));
+  background: var(
+    --button-color-secondary-bg-disabled-default,
+    color(display-p3 0.1373 0.4314 0.2588 / 0.4)
+  );
+}
+
+/* Button Appearance - Tertiary */
+
+.button-appearance-tertiary {
+  color: var(--button-color-tertiary-text-default, #f1fcd9);
+  color: var(--button-color-tertiary-text-default, color(display-p3 0.9608 0.9882 0.8745));
+
+  background: var(--button-color-tertiary-bg-static-default, #080a01);
+  background: var(
+    --button-color-tertiary-bg-static-default,
+    color(display-p3 0.0314 0.0392 0.0118)
+  );
+}
+
+.button-appearance-tertiary:hover {
+  color: var(--button-color-tertiary-text-hovered, #080a01);
+  color: var(--button-color-tertiary-text-hovered, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-tertiary-bg-hovered-default, #ebf6d3);
+  background: var(
+    --button-color-tertiary-bg-hovered-default,
+    color(display-p3 0.9373 0.9647 0.851)
+  );
+}
+
+.button-appearance-tertiary:active {
+  color: var(--button-color-tertiary-text-pressed, #080a01);
+  color: var(--button-color-tertiary-text-pressed, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-tertiary-bg-pressed-default, #f1fcd9);
+  background: var(
+    --button-color-tertiary-bg-pressed-default,
+    color(display-p3 0.9608 0.9882 0.8745)
+  );
+}
+
+.button-appearance-tertiary-selected {
+  color: var(--button-color-tertiary-text-selected, #080a01);
+  color: var(--button-color-tertiary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-tertiary-bg-selected-default, #fbfdef);
+  background: var(
+    --button-color-tertiary-bg-selected-default,
+    color(display-p3 0.9843 0.9922 0.9451)
+  );
+}
+
+.button-appearance-tertiary-selected-overflowed {
+  color: var(--button-color-tertiary-text-selected, #080a01);
+  color: var(--button-color-tertiary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+  background: var(--button-color-tertiary-bg-selected-default, #fbfdef);
+  background: var(
+    --button-color-tertiary-bg-selected-default,
+    color(display-p3 0.9843 0.9922 0.9451)
+  );
+}
+.button-appearance-tertiary-selected:hover,
+.button-appearance-tertiary-selected-overflowed:hover {
+  color: var(--button-color-tertiary-text-selected, #080a01);
+  color: var(--button-color-tertiary-text-selected, color(display-p3 0.0314 0.0392 0.0118));
+
+  background: var(--button-color-tertiary-bg-selected-hovered-default, #fbfdef);
+  background: var(
+    --button-color-tertiary-bg-selected-hovered-default,
+    color(display-p3 0.9843 0.9922 0.9451)
+  );
+}
+
+.button-appearance-tertiary:disabled {
+  color: var(--button-color-tertiary-text-disabled, rgba(8, 10, 1, 0.4));
+  color: var(--button-color-tertiary-text-disabled, color(display-p3 0.0314 0.0392 0.0118 / 0.4));
+
+  background: var(--button-color-tertiary-bg-disabled-default, #bebebe);
+  background: var(
+    --button-color-tertiary-bg-disabled-default,
+    color(display-p3 0.7451 0.7451 0.7451)
+  );
+}

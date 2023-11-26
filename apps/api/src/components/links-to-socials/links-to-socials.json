@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_links_to_socials_links_to_socials",
+  "info": {
+    "displayName": "Links to Socials",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "VKLink": {
+      "type": "string"
+    },
+    "TGLink": {
+      "type": "string"
+    },
+    "IGLink": {
+      "type": "string"
+    },
+    "SCLink": {
+      "type": "string"
+    },
+    "BCLink": {
+      "type": "string"
+    }
+  }
+}

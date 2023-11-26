@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shop_categories",
+  "info": {
+    "singularName": "shop-category",
+    "pluralName": "shop-categories",
+    "displayName": "Shop Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop-category.shop-category"
+    }
+  }
+}

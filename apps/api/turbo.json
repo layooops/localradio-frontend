@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "lint": {},
+    "build": {
+      "env": ["YANDEX_CLOUD_BUCKET", "NODE_ENV", "YOUTUBE_CHANNEL_ID"],
+      "outputs": [".cache/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "env": ["YANDEX_CLOUD_BUCKET", "NODE_ENV", "YOUTUBE_CHANNEL_ID"],
+      "persistent": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_main_pages",
+  "info": {
+    "displayName": "MainPageSeo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "SEO": {
+      "displayName": "seo",
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

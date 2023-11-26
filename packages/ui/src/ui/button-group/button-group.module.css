@@ -1,0 +1,47 @@
+.button-group {
+  display: flex;
+  width: fit-content;
+}
+
+.button-group-direction-horizontal {
+  display: flex;
+}
+
+.button-group-direction-vertical {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.button-group-size-extra-small {
+  gap: var(--gap-xs, 4px);
+}
+.button-group-size-small {
+  gap: var(--gap-sm, 8px);
+}
+.button-group-size-medium {
+  gap: var(--gap-sm, 8px);
+}
+.button-group-size-large {
+  gap: var(--gap-md, 12px);
+}
+
+.button-group-attached {
+  gap: 0;
+}
+
+.button-group-attached button:not(:only-child):first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.button-group-attached button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  border-right: none;
+}
+
+.button-group-attached button:not(:only-child):last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

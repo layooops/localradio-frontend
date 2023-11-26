@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_event_or_type_event_infos",
+  "info": {
+    "displayName": "EventInfo"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "info": {
+      "type": "richtext"
+    }
+  }
+}

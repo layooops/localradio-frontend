@@ -38,3 +38,8 @@ yarn-error.log*
 CHANGELOG.md
 
 pnpm-lock.yaml
+
+
+# STRAPI
+.cache
+build

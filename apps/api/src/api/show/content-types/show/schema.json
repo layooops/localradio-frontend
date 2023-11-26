@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shows",
+  "info": {
+    "singularName": "show",
+    "pluralName": "shows",
+    "displayName": "Show",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "mixes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mix.mix",
+      "mappedBy": "show"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links-to-socials.links-to-socials"
+    },
+    "youtubePlayerLink": {
+      "type": "string"
+    },
+    "descriptionRu": {
+      "type": "richtext"
+    },
+    "descriptionEn": {
+      "type": "richtext"
+    }
+  }
+}

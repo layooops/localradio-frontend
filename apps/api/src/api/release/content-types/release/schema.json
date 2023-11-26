@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "releases",
+  "info": {
+    "singularName": "release",
+    "pluralName": "releases",
+    "displayName": "Release",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "artistName": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["Single", "Album", "Ep", "Compilation", "Mixtape"],
+      "required": true
+    },
+    "releaseName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "releaseName"
+    },
+    "descriptionRu": {
+      "type": "richtext"
+    },
+    "links": {
+      "displayName": "links",
+      "type": "component",
+      "repeatable": false,
+      "component": "release-links.links"
+    },
+    "descriptionEn": {
+      "type": "richtext"
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::guest.guest"
+    }
+  }
+}

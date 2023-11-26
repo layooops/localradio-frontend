@@ -1,0 +1,39 @@
+.icon {
+  display: flex;
+  position: relative;
+}
+
+.icon-overlapped {
+  opacity: 0.6;
+  filter: blur(2px);
+}
+
+.icon-overlapping {
+  position: absolute;
+  inset: 0;
+}
+
+.icon-size-extra-small {
+  width: var(--icon-size-extra-small, 14px);
+  height: var(--icon-size-extra-small, 14px);
+}
+
+.icon-size-small {
+  width: var(--icon-size-small, 18px);
+  height: var(--icon-size-small, 18px);
+}
+
+.icon-size-medium {
+  width: var(--icon-size-small, 18px);
+  height: var(--icon-size-small, 18px);
+}
+
+.icon-size-large {
+  width: var(--icon-size-small, 18px);
+  height: var(--icon-size-small, 18px);
+}
+
+.icon-size-extra-large {
+  width: var(--icon-size-extra-large, 18px);
+  height: var(--icon-size-extra-large, 18px);
+}

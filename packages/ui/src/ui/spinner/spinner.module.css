@@ -1,0 +1,45 @@
+.spinner {
+  --spinner-animation-speed: 1s;
+  --spinner-animation-name: spinner-animation;
+}
+
+.spinner {
+  display: inline-block;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  vertical-align: var(--spinner-vertical-align);
+  border-radius: 50%;
+  animation: var(--spinner-animation-speed) linear infinite var(--spinner-animation-name);
+  border: var(--spinner-border-width) solid currentcolor;
+  border-right-color: transparent;
+}
+
+.spinner-size-extra-small {
+  --spinner-size: 12px;
+  --spinner-vertical-align: -0.125em;
+  --spinner-border-width: 2px;
+}
+
+.spinner-size-small {
+  --spinner-size: 16px;
+  --spinner-vertical-align: -0.125em;
+  --spinner-border-width: 2px;
+}
+
+.spinner-size-medium {
+  --spinner-size: 20px;
+  --spinner-vertical-align: -0.125em;
+  --spinner-border-width: 2px;
+}
+
+.spinner-size-large {
+  --spinner-size: 44px;
+  --spinner-vertical-align: -0.125em;
+  --spinner-border-width: 2px;
+}
+
+@keyframes spinner-animation {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,32 @@
+.label {
+  color: var(--form-text-color-default, #080a01);
+  color: var(--form-text-color-default, color(display-p3 0.0314 0.0392 0.0118));
+}
+.label-disabled {
+  color: var(--form-text-color-disabled, #a4a4a4);
+  color: var(--form-text-color-disabled, color(display-p3 0.6431 0.6431 0.6431));
+}
+
+.label-size-medium {
+  font-size: var(--typography-paragraph-medium-font-size);
+  line-height: var(--typography-paragraph-medium-line-height);
+  font-weight: 470;
+}
+
+.label-size-large {
+  font-size: var(--typography-paragraph-large-font-size);
+  line-height: var(--typography-paragraph-large-line-height);
+  font-weight: 470;
+}
+
+.label-required-sign-appearance-default {
+  color: var(--form-text-color-default, #080a01);
+  color: var(--form-text-color-default, color(display-p3 0.0314 0.0392 0.0118));
+}
+.label-required-sign-appearance-colorized {
+  color: var(--form-group-input-external-label-color-text-required, #d00b18);
+  color: var(
+    --form-group-input-external-label-color-text-required,
+    color(display-p3 0.6902 0.2235 0.1843)
+  );
+}

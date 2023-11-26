@@ -1,0 +1,19 @@
+{
+  "name": "@local-radio/codegen-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "dependencies": {
+    "@graphql-codegen/near-operation-file-preset": "^2.5.0",
+    "@graphql-codegen/schema-ast": "^4.0.0",
+    "@graphql-codegen/typed-document-node": "^5.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-typed-document-node/core": "^3.2.0",
+    "@local-radio/tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@graphql-codegen/cli": "^5.0.0"
+  }
+}

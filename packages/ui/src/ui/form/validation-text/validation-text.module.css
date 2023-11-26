@@ -1,0 +1,40 @@
+.validation {
+  display: flex;
+}
+
+.validation-size-medium {
+  gap: var(--form-input-external-label-gap-default, 4px);
+  font-size: var(--typography-paragraph-medium-font-size);
+  line-height: var(--typography-paragraph-medium-line-height);
+  font-weight: 400;
+}
+
+.validation-size-large {
+  gap: var(--form-input-external-label-gap-default, 4px);
+  font-size: var(--typography-paragraph-large-font-size);
+  line-height: var(--typography-paragraph-large-line-height);
+  font-weight: 400;
+}
+
+.validation-appearance-help {
+  color: var(--form-text-color-default, #080a01);
+  color: var(--form-text-color-default, color(display-p3 0.0314 0.0392 0.0118));
+}
+.validation-appearance-valid {
+  color: var(--form-validation-valid-external-text-default, #006326);
+  color: var(--form-validation-valid-external-text-default, color(display-p3 0 0.3725 0.1961));
+}
+.validation-appearance-invalid {
+  color: var(--form-validation-invalid-external-text-default, #bc0000);
+  color: var(
+    --form-validation-invalid-external-text-default,
+    color(display-p3 0.6157 0.1216 0.098)
+  );
+}
+.validation-appearance-warning {
+  color: var(--form-validation-warning-external-text-default, #d4b400);
+  color: var(
+    --form-validation-warning-external-text-default,
+    color(display-p3 0.7961 0.7137 0.2314)
+  );
+}

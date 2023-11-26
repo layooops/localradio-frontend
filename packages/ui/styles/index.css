@@ -1,0 +1,25 @@
+@import url('@local-radio/css-tokens');
+
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Right Grotesk Wide Variable';
+    src: url('../public/fonts/pp-right-grotesk-wide-variable.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-display: optional;
+  }
+}
+
+:root {
+  font-family: 'Right Grotesk Wide Variable';
+}
+
+body {
+  font-family: 'Right Grotesk Wide Variable';
+}
+
+* {
+  padding: 25px;
+  font-family: 'Right Grotesk Wide Variable';
+}

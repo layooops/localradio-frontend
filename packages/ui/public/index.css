@@ -1,0 +1,16 @@
+@import url('@local-radio/css-tokens');
+
+@font-face {
+  font-family: 'PP Right Grotesk', serif;
+  src: url('./fonts/pp-right-grotesk-wide-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  font-display: optional;
+}
+
+* {
+  font-family: 'PP Right Grotesk';
+  font-weight: 340;
+  box-sizing: border-box;
+}

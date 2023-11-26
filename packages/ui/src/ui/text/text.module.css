@@ -1,0 +1,87 @@
+/* Font Weight */
+
+.font-weight-regular {
+  font-weight: var(--typography-font-weight-regular);
+}
+
+.font-weight-medium {
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.font-weight-bold {
+  font-weight: var(--typography-font-weight-bold);
+}
+
+/* Heading Text */
+
+.h1 {
+  font-size: var(--typography-heading-h1-font-size);
+  line-height: var(--typography-heading-h1-line-height);
+  font-weight: var(--typography-heading-h1-font-weight);
+}
+
+.h2 {
+  font-size: var(--typography-heading-h2-font-size);
+  line-height: var(--typography-heading-h2-line-height);
+  font-weight: var(--typography-heading-h2-font-weight);
+}
+
+.h3 {
+  font-size: var(--typography-heading-h3-font-size);
+  line-height: var(--typography-heading-h3-line-height);
+  font-weight: var(--typography-heading-h3-font-weight);
+}
+
+.h4 {
+  font-size: var(--typography-heading-h4-font-size);
+  line-height: var(--typography-heading-h4-line-height);
+  font-weight: var(--typography-heading-h4-font-weight);
+}
+
+.h5 {
+  font-size: var(--typography-heading-h5-font-size);
+  line-height: var(--typography-heading-h5-line-height);
+  font-weight: var(--typography-heading-h5-font-weight);
+}
+
+.h6 {
+  font-size: var(--typography-heading-h6-font-size);
+  line-height: var(--typography-heading-h6-line-height);
+  font-weight: var(--typography-heading-h6-font-weight);
+}
+
+/* Body Text */
+
+.body-small {
+  font-size: var(--typography-body-small-font-size);
+  line-height: var(--typography-body-small-line-height);
+  font-weight: var(--typography-body-small-font-weight);
+}
+
+.body-medium {
+  font-size: var(--typography-body-medium-font-size);
+  line-height: var(--typography-body-medium-line-height);
+  font-weight: var(--typography-body-medium-font-weight);
+}
+
+.body-large {
+  font-size: var(--typography-body-large-font-size);
+  line-height: var(--typography-body-large-line-height);
+  font-weight: var(--typography-body-large-font-weight);
+}
+
+.body-extra-large {
+  font-size: var(--typography-body-extra-large-font-size);
+  line-height: var(--typography-body-extra-large-line-height);
+  font-weight: var(--typography-body-extra-large-font-weight);
+}
+
+/* Text Decoration */
+
+.text-decoration-none {
+  text-decoration-line: none;
+}
+
+.text-decoration-line-through {
+  text-decoration-line: line-through;
+}

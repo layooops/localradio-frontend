@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mixes",
+  "info": {
+    "singularName": "mix",
+    "pluralName": "mixes",
+    "displayName": "Mix",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "show": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::show.show",
+      "inversedBy": "mixes"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "slug": {
+      "type": "uid",
+      "required": false,
+      "targetField": "name"
+    },
+    "date": {
+      "type": "datetime",
+      "required": true,
+      "unique": true
+    },
+    "genres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genre.genre",
+      "inversedBy": "mixes"
+    },
+    "guests": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::guest.guest",
+      "inversedBy": "mixes"
+    },
+    "moods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mood.mood",
+      "mappedBy": "mixes"
+    },
+    "linksToMixes": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links-to-mixes.link",
+      "required": false
+    },
+    "locationLink": {
+      "type": "string"
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "mixes"
+    },
+    "descriptionRu": {
+      "type": "richtext"
+    },
+    "tracklist": {
+      "type": "richtext"
+    },
+    "descriptionEn": {
+      "type": "richtext"
+    }
+  }
+}

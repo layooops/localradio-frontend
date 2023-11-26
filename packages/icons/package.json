@@ -1,0 +1,70 @@
+{
+  "name": "@local-radio/icons",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build:clean": "rimraf dist",
+    "build:source": "tsc",
+    "build": "tsup",
+    "generate:icons": "yarn build:clean && node --experimental-specifier-resolution=node --loader ts-node/esm ./src/generate.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@svgr/cli": "8.1.0",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
+    "react-element-to-jsx-string": "15.0.0",
+    "@storybook/addon-a11y": "7.5.3",
+    "@storybook/addon-actions": "7.5.3",
+    "@storybook/addon-docs": "7.5.3",
+    "@storybook/addon-essentials": "7.5.3",
+    "@storybook/addon-interactions": "7.5.3",
+    "@storybook/addon-links": "7.5.3",
+    "@storybook/addon-onboarding": "1.0.8",
+    "@storybook/addon-themes": "7.5.3",
+    "@storybook/blocks": "7.5.3",
+    "@storybook/manager-api": "7.5.3",
+    "@storybook/react": "7.5.3",
+    "@storybook/react-vite": "7.5.3",
+    "@storybook/testing-library": "0.2.2",
+    "@storybook/theming": "7.5.3",
+    "@svgr/plugin-prettier": "8.1.0",
+    "@svgr/plugin-svgo": "8.1.0",
+    "@types/fs-extra": "11.0.4",
+    "@types/node": "20.9.4",
+    "change-case": "5.2.0",
+    "fs-extra": "11.1.1",
+    "npm-run-all": "^4.1.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.5",
+    "storybook": "7.5.3",
+    "storybook-addon-tags": "0.0.1",
+    "storybook-css-modules": "1.0.8",
+    "svgo": "3.0.4",
+    "ts-node": "10.9.1",
+    "tslib": "2.6.2",
+    "tsup": "7.2.0",
+    "typescript": "5.3.2",
+    "vite": "5.0.2"
+  }
+}

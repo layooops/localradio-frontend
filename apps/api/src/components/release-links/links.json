@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_release_links_links",
+  "info": {
+    "displayName": "links"
+  },
+  "options": {},
+  "attributes": {
+    "soundcloud": {
+      "type": "string"
+    },
+    "youtubeMusic": {
+      "type": "string"
+    },
+    "yandexMusic": {
+      "type": "string"
+    },
+    "appleMusic": {
+      "type": "string"
+    },
+    "spotify": {
+      "type": "string"
+    },
+    "bandcamp": {
+      "type": "string"
+    },
+    "vkMusic": {
+      "type": "string"
+    }
+  }
+}

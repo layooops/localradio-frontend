@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_event_or_type_events",
+  "info": {
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "eventDate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "date.event-date"
+    },
+    "schedule": {
+      "displayName": "EventInfo",
+      "type": "component",
+      "repeatable": true,
+      "component": "event-or-type.event-info"
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location.location"
+    },
+    "info": {
+      "type": "richtext"
+    }
+  }
+}

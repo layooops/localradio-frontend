@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_schedule_schedules",
+  "info": {
+    "displayName": "schedule",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "time",
+      "required": false
+    },
+    "artist": {
+      "displayName": "artist",
+      "type": "component",
+      "repeatable": false,
+      "component": "schedule.artist"
+    }
+  }
+}

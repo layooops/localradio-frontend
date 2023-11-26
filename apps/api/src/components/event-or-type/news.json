@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_event_or_type_news",
+  "info": {
+    "displayName": "news"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

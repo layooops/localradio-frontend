@@ -1,0 +1,20 @@
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metadata-list {
+  display: flex;
+  padding-left: none !important;
+  margin: none;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  padding: 4px 8px;
+  font-size: 16px;
+  background: lightgray;
+  border-radius: 8px;
+}
